@@ -51,9 +51,8 @@ public class People {
     private LocalDateTime dateTimeRegistration;
     private LocalDateTime dateTimeLastChange;
 
-    public People(String namePeople, List<Expense> expenses, String cpf, String age, Sex sex, String telephone, String email, BigDecimal income, LocalDateTime dateTimeRegistration) {
+    public People(String namePeople, String cpf, String age, Sex sex, String telephone, String email, BigDecimal income, LocalDateTime dateTimeRegistration) {
         this.namePeople = namePeople;
-        this.expenses = expenses;
         this.cpf = cpf;
         this.age = age;
         this.sex = sex;
