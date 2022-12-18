@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.despesa;
+package br.com.danilosilva.despesa.despesa.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Domain {
+public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idExpense", updatable = false, unique = true, nullable = false)
