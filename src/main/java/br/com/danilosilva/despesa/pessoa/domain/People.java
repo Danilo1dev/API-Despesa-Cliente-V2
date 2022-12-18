@@ -29,8 +29,8 @@ public class People {
     @Column(unique = true)
     private String namePeople;
 
-    @OneToMany (mappedBy = "people")
-    private List<Expense> expenses;
+//    @OneToMany (mappedBy = "people")
+//    private List<Expense> expenses;
 
     @NotBlank
     @Size(max = 11)
