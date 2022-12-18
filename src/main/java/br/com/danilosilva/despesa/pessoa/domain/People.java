@@ -18,7 +18,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-
+@Table(name = "people")
 public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
