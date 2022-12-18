@@ -14,7 +14,7 @@ public class PeopleController implements PeopleAPI {
     @Override
     public PeopleResponse postPeople(PeopleRequest peopleRequest) {
         log.info("[start] PeopleController - postPeople");
-        PeopleResponse peopleResponse = peopleService.createPeople(peopleRequest);
+        PeopleResponse peopleCreate = peopleService.createPeople(peopleRequest);
         log.info("[finished] PeopleController - postPeople");
         return peopleCreate;
     }
