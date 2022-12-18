@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /despesa-cliente/api
+    context-path: /despesa-pessoa/api
 
 springdoc:
   swagger-ui:
