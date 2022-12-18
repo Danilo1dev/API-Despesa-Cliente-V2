@@ -19,7 +19,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Pessoa {
+public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idPeople", updatable = false, unique = true, nullable = false)
@@ -51,7 +51,7 @@ public class Pessoa {
     private LocalDateTime dateTimeRegistration;
     private LocalDateTime dateTimeLastChange;
 
-    public Pessoa(String namePeople, List<Expense> expenses, String cpf, String age, Sex sex, String telephone, String email, BigDecimal income, LocalDateTime dateTimeRegistration) {
+    public People(String namePeople, List<Expense> expenses, String cpf, String age, Sex sex, String telephone, String email, BigDecimal income, LocalDateTime dateTimeRegistration) {
         this.namePeople = namePeople;
         this.expenses = expenses;
         this.cpf = cpf;
