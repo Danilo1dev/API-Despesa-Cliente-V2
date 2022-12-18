@@ -28,4 +28,13 @@ public class Expense {
 
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
+
+    public Expense(String name, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.expenseType = expenseType;
+        this.expenseDate = expenseDate;
+        this.dateTimeRegistrationExpense = LocalDateTime.now();
+    }
 }
