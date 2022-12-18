@@ -5,4 +5,5 @@ import br.com.danilosilva.despesa.pessoa.application.api.PeopleResponse;
 
 public interface PeopleService {
     PeopleResponse createPeople(PeopleRequest peopleRequest);
+
 }

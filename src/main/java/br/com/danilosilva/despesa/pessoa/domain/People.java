@@ -1,6 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.domain;
 
-import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,13 +12,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+
 public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,14 +51,14 @@ public class People {
     private LocalDateTime dateTimeRegistration;
     private LocalDateTime dateTimeLastChange;
 
-    public People(String namePeople, String cpf, String age, Sex sex, String telephone, String email, BigDecimal income, LocalDateTime dateTimeRegistration) {
-        this.namePeople = namePeople;
-        this.cpf = cpf;
-        this.age = age;
-        this.sex = sex;
-        this.telephone = telephone;
-        this.email = email;
-        this.income = income;
+    public People(PeopleRequest peopleRequest) {
+        this.namePeople = peopleRequest.getNamePeople();
+        this.cpf = peopleRequest.getCpf();
+        this.age = peopleRequest.getAge();
+        this.sex = peopleRequest.getSex();
+        this.telephone = peopleRequest.getTelephone();
+        this.email = peopleRequest.getEmail();
+        this.income = peopleRequest.getIncome();
         this.dateTimeRegistration = LocalDateTime.now();
     }
 }
