@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
@@ -17,5 +19,12 @@ public class PeopleController implements PeopleAPI {
         PeopleResponse peopleCreate = peopleService.createPeople(peopleRequest);
         log.info("[finished] PeopleController - postPeople");
         return peopleCreate;
+    }
+
+    @Override
+    public List<PeopleListResponse> getEveryBody() {
+        log.info("[start] PeopleController - getEveryBody");
+        log.info("[finished] PeopleController - getEveryBody");
+        return null;
     }
 }
