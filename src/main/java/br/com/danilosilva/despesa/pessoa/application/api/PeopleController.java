@@ -4,7 +4,6 @@ import br.com.danilosilva.despesa.pessoa.application.service.PeopleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -24,7 +23,8 @@ public class PeopleController implements PeopleAPI {
     @Override
     public List<PeopleListResponse> getEveryBody() {
         log.info("[start] PeopleController - getEveryBody");
+        List<PeopleListResponse> people= peopleService.searchAllPeople();
         log.info("[finished] PeopleController - getEveryBody");
-        return null;
+        return people;
     }
 }
