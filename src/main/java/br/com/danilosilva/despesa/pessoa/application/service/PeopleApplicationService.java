@@ -40,7 +40,8 @@ public class PeopleApplicationService implements PeopleService {
     public DetailedPersonResponse getPersonViaID(UUID idPeople) {
         log.info("[start] PeopleController - getPersonViaID");
         log.info("[idPeople] {}", idPeople);
+        People people = peopleRepository.searchPersonById(idPeople);
         log.info("[finished] PeopleController - getPersonViaID");
-        return null;
+        return new DetailedPersonResponse(people);
     }
 }

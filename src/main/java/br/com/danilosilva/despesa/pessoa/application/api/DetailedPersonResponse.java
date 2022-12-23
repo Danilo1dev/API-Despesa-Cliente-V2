@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.application.api;
 
+import br.com.danilosilva.despesa.pessoa.domain.People;
 import br.com.danilosilva.despesa.pessoa.domain.Sex;
 import lombok.Value;
 import java.math.BigDecimal;
@@ -16,4 +17,16 @@ public class DetailedPersonResponse {
     private String email;
     private BigDecimal income;
     private LocalDateTime dateTimeRegistration;
+
+    public DetailedPersonResponse(People people) {
+        this.idPeople = people.getIdPeople();
+        this.namePeople = people.getNamePeople();
+        this.age = people.getAge();
+        this.sex = people.getSex();
+        this.cpf = people.getCpf();
+        this.telephone = people.getTelephone();
+        this.email = people.getEmail();
+        this.income = people.getIncome();
+        this.dateTimeRegistration = people.getDateTimeRegistration();
+    }
 }
