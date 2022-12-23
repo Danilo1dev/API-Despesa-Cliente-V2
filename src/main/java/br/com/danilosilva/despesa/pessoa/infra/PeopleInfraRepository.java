@@ -5,7 +5,6 @@ import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -25,7 +24,8 @@ public class PeopleInfraRepository implements PeopleRepository {
     @Override
     public List<People> searchAllPeople() {
         log.info("[start] PeopleInfraRepository - searchAllPeople");
+        List<People> everybody = peopleSpringDataJPARepository.findAll();
         log.info("[finished] PeopleInfraRepository - searchAllPeople");
-        return null;
+        return everybody;
     }
 }
