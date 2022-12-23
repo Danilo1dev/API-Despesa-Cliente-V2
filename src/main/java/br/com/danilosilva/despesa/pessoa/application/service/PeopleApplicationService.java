@@ -30,7 +30,8 @@ public class PeopleApplicationService implements PeopleService {
     @Override
     public List<PeopleListResponse> searchAllPeople() {
         log.info("[start] PeopleApplicationService - searchAllPeople");
+        List<People> peoples = peopleRepository.searchAllPeople();
         log.info("[finished] PeopleApplicationService - searchAllPeople");
-        return null;
+        return PeopleListResponse.converte(peoples);
     }
 }
