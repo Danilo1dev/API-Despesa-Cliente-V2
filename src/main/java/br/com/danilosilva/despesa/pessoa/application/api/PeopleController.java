@@ -33,7 +33,8 @@ public class PeopleController implements PeopleAPI {
     public DetailedPersonResponse getPersonViaID(UUID idPeople) {
         log.info("[start] PeopleController - getEveryBody");
         log.info("[idPeople] {}", idPeople);
+        DetailedPersonResponse detailedPerson = peopleService.getPersonViaID(idPeople);
         log.info("[finished] PeopleController - getEveryBody");
-        return null;
+        return detailedPerson;
     }
 }
