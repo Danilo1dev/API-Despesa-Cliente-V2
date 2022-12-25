@@ -37,4 +37,11 @@ public class PeopleController implements PeopleAPI {
         log.info("[finished] PeopleController - getEveryBody");
         return detailedPerson;
     }
+
+    @Override
+    public void deletePersonViaID(UUID idPeople) {
+        log.info("[start] PeopleController - deletePersonViaID");
+        log.info("[idPeople] {}", idPeople);
+        log.info("[finished] PeopleController - deletePersonViaID");
+    }
 }
