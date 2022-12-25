@@ -22,8 +22,12 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idExpense", updatable = false, unique = true, nullable = false)
     private UUID idExpense;
+
     @NotNull
-    private String name;
+    @Column(columnDefinition = "uuid", name = "idPeopleRegistered", nullable = false)
+    private UUID idPeopleRegistered;
+    @NotNull
+    private String nameExpense;
     @NotNull
     @NotBlank(message = "Enter a Description")
     @Size(max = 100)
@@ -39,7 +43,7 @@ public class Expense {
     private LocalDateTime dateTimeLastChangeExpense;
 
     public Expense(String name, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
-        this.name = name;
+        this.nameExpense = nameExpense;
         this.description = description;
         this.price = price;
         this.expenseType = expenseType;
