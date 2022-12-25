@@ -24,4 +24,6 @@ public interface PeopleAPI {
     @DeleteMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deletePersonViaID(@PathVariable UUID idPeople);
+
+
 }
