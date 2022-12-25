@@ -11,4 +11,5 @@ public interface PeopleService {
     PeopleResponse createPeople(PeopleRequest peopleRequest);
     List<PeopleListResponse> searchAllPeople();
     DetailedPersonResponse getPersonViaID(UUID idPeople);
+    void deletePersonViaID(UUID idPeople);
 }

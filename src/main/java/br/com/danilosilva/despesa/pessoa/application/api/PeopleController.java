@@ -1,6 +1,7 @@
 package br.com.danilosilva.despesa.pessoa.application.api;
 
 import br.com.danilosilva.despesa.pessoa.application.service.PeopleService;
+import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +43,7 @@ public class PeopleController implements PeopleAPI {
     public void deletePersonViaID(UUID idPeople) {
         log.info("[start] PeopleController - deletePersonViaID");
         log.info("[idPeople] {}", idPeople);
+        peopleService.deletePersonViaID(idPeople);
         log.info("[finished] PeopleController - deletePersonViaID");
     }
 }
