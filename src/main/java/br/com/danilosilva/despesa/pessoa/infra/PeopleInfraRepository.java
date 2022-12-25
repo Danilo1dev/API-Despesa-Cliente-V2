@@ -40,4 +40,11 @@ public class PeopleInfraRepository implements PeopleRepository {
         log.info("[finished]PeopleInfraRepository - searchPersonById");
         return people;
     }
+
+    @Override
+    public void deletePeople(People people) {
+        log.info("[start]PeopleInfraRepository - deletePeople");
+        peopleSpringDataJPARepository.delete(people);
+        log.info("[finished]PeopleInfraRepository - deletePeople");
+    }
 }

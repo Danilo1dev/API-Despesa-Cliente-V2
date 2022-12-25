@@ -49,6 +49,7 @@ public class PeopleApplicationService implements PeopleService {
     public void deletePersonViaID(UUID idPeople) {
         log.info("[start] PeopleController - deletePersonViaID");
         People people = peopleRepository.searchPersonById(idPeople);
+        peopleRepository.deletePeople(people);
         log.info("[finished] PeopleController - deletePersonViaID");
     }
 }

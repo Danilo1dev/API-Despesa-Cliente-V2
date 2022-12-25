@@ -6,8 +6,7 @@ import java.util.UUID;
 
 public interface PeopleRepository {
     People save(People people);
-
     List<People> searchAllPeople();
-
     People searchPersonById(UUID idPeople);
+    void deletePeople(People people);
 }
