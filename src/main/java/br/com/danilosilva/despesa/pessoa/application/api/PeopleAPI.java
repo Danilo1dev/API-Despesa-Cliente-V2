@@ -27,5 +27,5 @@ public interface PeopleAPI {
 
     @PatchMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void patchPeople(@PathVariable UUID idPeople, @Valid @RequestBody changePeopleRequest changePeopleRequest);
+    void changePeople(@PathVariable UUID idPeople, @Valid @RequestBody ChangePeopleRequest changePeopleRequest);
 }

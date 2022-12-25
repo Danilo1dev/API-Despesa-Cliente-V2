@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Value
-public class changePeopleRequest {
+public class ChangePeopleRequest {
         @NotBlank
         private String namePeople;
         @NotBlank

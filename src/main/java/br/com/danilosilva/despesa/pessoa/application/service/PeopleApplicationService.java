@@ -1,14 +1,13 @@
 package br.com.danilosilva.despesa.pessoa.application.service;
 
-import br.com.danilosilva.despesa.pessoa.application.api.DetailedPersonResponse;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleListResponse;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleResponse;
+import br.com.danilosilva.despesa.pessoa.application.api.*;
 import br.com.danilosilva.despesa.pessoa.application.repository.PeopleRepository;
 import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,5 +50,15 @@ public class PeopleApplicationService implements PeopleService {
         People people = peopleRepository.searchPersonById(idPeople);
         peopleRepository.deletePeople(people);
         log.info("[finished] PeopleController - deletePersonViaID");
+    }
+
+    @Override
+    public void changePersonViaID(UUID idPeople, ChangePeopleRequest changePeopleRequest) {
+        log.info("[start] PeopleApplicationService - patchPersonViaID");
+        People people = peopleRepository.searchPersonById(idPeople);
+        people.change(changePeopleRequest);
+        peopleRepository.save(people);
+        log.info("[dateTimeLastChange] {}", LocalDateTime.now());
+        log.info("[finished] PeopleApplicationService - patchPersonViaID");
     }
 }

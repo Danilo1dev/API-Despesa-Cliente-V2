@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.domain;
 
+import br.com.danilosilva.despesa.pessoa.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -60,5 +61,14 @@ public class People {
         this.email = peopleRequest.getEmail();
         this.income = peopleRequest.getIncome();
         this.dateTimeRegistration = LocalDateTime.now();
+    }
+
+    public void change(ChangePeopleRequest peopleRequest) {
+        this.namePeople = peopleRequest.getNamePeople();
+        this.age = peopleRequest.getAge();
+        this.sex = peopleRequest.getSex();
+        this.telephone = peopleRequest.getTelephone();
+        this.income = peopleRequest.getIncome();
+        this.dateTimeLastChange = LocalDateTime.now();
     }
 }

@@ -1,10 +1,11 @@
 package br.com.danilosilva.despesa.pessoa.application.api;
 
 import br.com.danilosilva.despesa.pessoa.application.service.PeopleService;
-import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -48,9 +49,10 @@ public class PeopleController implements PeopleAPI {
     }
 
     @Override
-    public void patchPeople(UUID idPeople, changePeopleRequest changePeopleRequest) {
-        log.info("[start] PeopleController - patchPeople");
+    public void changePeople(UUID idPeople, @Valid ChangePeopleRequest changePeopleRequest) {
+        log.info("[start] PeopleController - changePeople");
         log.info("[idPeople] {}", idPeople);
-        log.info("[finished] PeopleController - patchPeople");
+        peopleService.changePersonViaID(idPeople, changePeopleRequest);
+        log.info("[finished] PeopleController - changePeople");
     }
 }
