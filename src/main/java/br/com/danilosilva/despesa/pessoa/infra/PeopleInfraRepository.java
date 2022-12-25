@@ -23,7 +23,7 @@ public class PeopleInfraRepository implements PeopleRepository {
         try {
             peopleSpringDataJPARepository.save(people);
         }catch (DataIntegrityViolationException e){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Name or CPF already registered",e);
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Email or CPF already registered",e);
         }
         log.info("[finished] PeopleInfraRepository - savePeople");
         return people;

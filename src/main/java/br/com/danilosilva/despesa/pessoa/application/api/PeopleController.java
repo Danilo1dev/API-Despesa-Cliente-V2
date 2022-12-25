@@ -46,4 +46,11 @@ public class PeopleController implements PeopleAPI {
         peopleService.deletePersonViaID(idPeople);
         log.info("[finished] PeopleController - deletePersonViaID");
     }
+
+    @Override
+    public void patchPeople(UUID idPeople, changePeopleRequest changePeopleRequest) {
+        log.info("[start] PeopleController - patchPeople");
+        log.info("[idPeople] {}", idPeople);
+        log.info("[finished] PeopleController - patchPeople");
+    }
 }

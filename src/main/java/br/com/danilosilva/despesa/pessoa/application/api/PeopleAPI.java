@@ -25,5 +25,7 @@ public interface PeopleAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deletePersonViaID(@PathVariable UUID idPeople);
 
-
+    @PatchMapping(value = "/{idPeople}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void patchPeople(@PathVariable UUID idPeople, @Valid @RequestBody changePeopleRequest changePeopleRequest);
 }

@@ -26,7 +26,6 @@ public class People {
     private UUID idPeople;
 
     @NotBlank
-    @Column(unique = true)
     private String namePeople;
 
 //    @OneToMany (mappedBy = "people")
@@ -44,6 +43,7 @@ public class People {
     @NotBlank
     private String telephone;
     @Email
+    @Column(unique = true)
     private String email;
     @NotNull
     private BigDecimal income;
