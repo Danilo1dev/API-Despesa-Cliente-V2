@@ -42,7 +42,7 @@ public class Expense {
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
 
-    public Expense(String name, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
+    public Expense(String nameExpense, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
         this.nameExpense = nameExpense;
         this.description = description;
         this.price = price;
