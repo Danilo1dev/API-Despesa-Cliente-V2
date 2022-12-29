@@ -37,7 +37,6 @@ public class Expense {
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private ExpenseType expenseType;
-
     private LocalDate expenseDate;
 
     private LocalDateTime dateTimeRegistrationExpense;

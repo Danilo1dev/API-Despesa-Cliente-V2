@@ -21,6 +21,17 @@ public class ExpensePeopleListResponse {
     private LocalDateTime dateTimeRegistrationExpense;
 
     public static List<ExpensePeopleListResponse> converte(List<Expense> expensePeople) {
-        return null;
+        return expensePeople.stream()
+                .map(ExpensePeopleListResponse::new)
+                .collect(Collectors.toList());
+    }
+    public ExpensePeopleListResponse(Expense expense) {
+        this.idExpense = expense.getIdExpense();
+        this.nameExpense = expense.getNameExpense();
+        this.description = expense.getDescription();
+        this.price = expense.getPrice();
+        this.expenseType = expense.getExpenseType();
+        this.expenseDate = expense.getExpenseDate();
+        this.dateTimeRegistrationExpense = expense.getDateTimeRegistrationExpense();
     }
 }
