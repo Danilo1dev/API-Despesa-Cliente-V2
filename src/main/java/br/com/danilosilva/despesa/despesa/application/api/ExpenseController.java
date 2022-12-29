@@ -4,7 +4,6 @@ import br.com.danilosilva.despesa.despesa.application.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
-import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -15,10 +14,10 @@ public class ExpenseController implements ExpenseAPI  {
     private final ExpenseService expenseService;
 
     @Override
-    public ExpenseResponse postExpense(UUID idPeopleRegistered, @Valid ExpenseRequest expenseRequest) {
-        log.info("[start] ExpenseController - postExpense");
-        log.info("[idPeople] {}" , idPeopleRegistered);
-        log.info("[finished] ExpenseController - postExpense");
-        return null;
+    public ExpenseResponse createExpense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+        log.info("[start] Create expense with id: " + idPeopleRegistered);
+        ExpenseResponse expenseCreate = expenseService.createExpense(idPeopleRegistered, expenseRequest);
+        log.info("[finished] Create expense with id: " + idPeopleRegistered);
+        return expenseCreate;
     }
 }

@@ -9,7 +9,8 @@ import java.util.UUID;
 @RequestMapping("/v1/expense")
 public interface ExpenseAPI {
 
-    @PostMapping(value = "people/{idPeopleRegistered}")
-    @ResponseStatus(code = HttpStatus.CREATED)
-    ExpenseResponse postExpense(@PathVariable UUID idPeopleRegistered,@Valid @RequestBody ExpenseRequest expenseRequest);
+    @PostMapping(value = "{idPeopleRegistered}")
+    @ResponseStatus(HttpStatus.CREATED)
+    ExpenseResponse createExpense(@PathVariable UUID idPeopleRegistered,
+                                  @Valid @RequestBody ExpenseRequest expenseRequest);
 }

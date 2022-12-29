@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.despesa.domain;
 
+import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,18 +37,19 @@ public class Expense {
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private ExpenseType expenseType;
-    @NotNull
+
     private LocalDate expenseDate;
 
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
 
-    public Expense(String nameExpense, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
-        this.nameExpense = nameExpense;
-        this.description = description;
-        this.price = price;
-        this.expenseType = expenseType;
-        this.expenseDate = expenseDate;
+    public Expense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+        this.idPeopleRegistered = idPeopleRegistered;
+        this.nameExpense = expenseRequest.getNameExpense();
+        this.description = expenseRequest.getDescription();
+        this.price = expenseRequest.getPrice();
+        this.expenseType = expenseRequest.getExpenseType();
+        this.expenseDate = expenseRequest.getExpenseDate();
         this.dateTimeRegistrationExpense = LocalDateTime.now();
     }
 }
