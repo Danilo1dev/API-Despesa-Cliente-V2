@@ -5,6 +5,8 @@ import br.com.danilosilva.despesa.despesa.domain.Expense;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -18,5 +20,13 @@ public class ExpenseInfraRepository implements ExpenseRepository {
         expenseSpringDataJPARepository.save(expense);
         log.info("[finished] InfraRepository - save");
         return expense;
+    }
+
+    @Override
+    public List<Expense> searchExpenseOfPeopleWithId(UUID idPeopleRegistered) {
+        log.info("[start] InfraRepository - searchAllExpense");
+        //List<Expense> expenses = expenseSpringDataJPARepository.searchExpenseOfPeopleWithId(idPeopleRegistered);
+        log.info("[finished] InfraRepository - searchAllExpense");
+        return null;
     }
 }
