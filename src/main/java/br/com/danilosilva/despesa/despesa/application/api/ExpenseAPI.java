@@ -3,6 +3,7 @@ package br.com.danilosilva.despesa.despesa.application.api;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -13,4 +14,8 @@ public interface ExpenseAPI {
     @ResponseStatus(HttpStatus.CREATED)
     ExpenseResponse createExpense(@PathVariable UUID idPeopleRegistered,
                                   @Valid @RequestBody ExpenseRequest expenseRequest);
+
+    @GetMapping(value = "{idPeopleRegistered}")
+    @ResponseStatus(HttpStatus.OK)
+    List<ExpensePeopleListResponse> getExpensePeopleId(@PathVariable UUID idPeopleRegistered);
 }
