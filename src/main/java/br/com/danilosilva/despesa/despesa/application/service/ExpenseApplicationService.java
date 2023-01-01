@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.despesa.application.service;
 
+import br.com.danilosilva.despesa.despesa.application.api.ExpenseDetailedResponse;
 import br.com.danilosilva.despesa.despesa.application.api.ExpensePeopleListResponse;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseResponse;
@@ -36,5 +37,12 @@ public class ExpenseApplicationService implements ExpenseService{
         List<Expense> expensePeople = expenseRepository.searchExpenseOfPeopleWithId(idPeopleRegistered);
         log.info("[finished] ApplicationService search person's expense list: " + idPeopleRegistered);
         return ExpensePeopleListResponse.converte(expensePeople);
+    }
+
+    @Override
+    public ExpenseDetailedResponse searchPersonExpenseWithId(UUID idPeopleRegistered, UUID idExpense) {
+        log.info("[start] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        log.info("[finished] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        return null;
     }
 }

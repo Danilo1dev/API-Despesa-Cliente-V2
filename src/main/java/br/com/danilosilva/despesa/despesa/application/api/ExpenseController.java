@@ -32,7 +32,8 @@ public class ExpenseController implements ExpenseAPI  {
     @Override
     public ExpenseDetailedResponse getExpensePeopleId(UUID idPeopleRegistered, UUID idExpense) {
         log.info("[start] List expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        ExpenseDetailedResponse expenseDetailed = expenseService.searchPersonExpenseWithId(idPeopleRegistered, idExpense);
         log.info("[finished] List expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
-        return null;
+        return expenseDetailed;
     }
 }
