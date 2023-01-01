@@ -43,4 +43,10 @@ public class ExpenseController implements ExpenseAPI  {
         expenseService.deleteExpense(idPeopleRegistered, idExpense);
         log.info("[finished] Delete expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
     }
+
+    @Override
+    public void updateExpensePeopleId(UUID idPeopleRegistered, UUID idExpense, ExpenseChangeRequest expenseChangeRequest) {
+        log.info("[start] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        log.info("[finished] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+    }
 }

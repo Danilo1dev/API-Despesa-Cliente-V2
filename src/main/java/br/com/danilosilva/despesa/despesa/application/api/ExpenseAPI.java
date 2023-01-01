@@ -2,6 +2,7 @@ package br.com.danilosilva.despesa.despesa.application.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
@@ -28,4 +29,10 @@ public interface ExpenseAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteExpensePeopleId(@PathVariable UUID idPeopleRegistered,
                                @PathVariable UUID idExpense);
+
+    @PatchMapping(value = "{idPeopleRegistered}/{idExpense}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void updateExpensePeopleId(@PathVariable UUID idPeopleRegistered,
+                               @PathVariable UUID idExpense,
+                               @Valid @RequestBody ExpenseChangeRequest expenseChangeRequest);
 }
