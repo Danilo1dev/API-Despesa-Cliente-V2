@@ -1,13 +1,14 @@
 package br.com.danilosilva.despesa.pessoa.application.service;
 
+import br.com.danilosilva.despesa.pessoa.application.api.PeopleResponse;
 import br.com.danilosilva.despesa.pessoa.application.mock.MockPeople;
 import br.com.danilosilva.despesa.pessoa.application.repository.PeopleRepository;
-import br.com.danilosilva.despesa.pessoa.domain.People;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -15,14 +16,15 @@ import static org.mockito.Mockito.when;
 class PeopleApplicationServiceTest {
 
     @InjectMocks
-    private PeopleApplicationService peopleApplicationService;
-
+    private PeopleApplicationService peopleService;
     @Mock
     private PeopleRepository peopleRepository;
 
     @Test
     void createPeople() {
-        when(peopleRepository.save(any(People.class))).thenReturn(MockPeople.peopleBuild());
+        when(peopleRepository.save(any())).thenReturn(MockPeople.peopleBuild());
+        PeopleResponse peopleResponse = peopleService.createPeople(MockPeople.peopleRequestBuild());
+        assertNotNull(peopleResponse);
     }
 
     @Test

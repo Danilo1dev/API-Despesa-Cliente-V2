@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.application.mock;
 
+import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
 import br.com.danilosilva.despesa.pessoa.domain.People;
 import br.com.danilosilva.despesa.pessoa.domain.Sex;
 import lombok.Builder;
@@ -16,10 +17,23 @@ public class MockPeople {
                 .namePeople("Danilo Silva")
                 .cpf("12345678901")
                 .age("30")
-                .sex(Sex.valueOf("MASCUINO"))
+                .sex(Sex.valueOf("MASCULINE"))
+                .telephone("73981978258")
                 .email("danilo@email.com")
                 .income(new BigDecimal("1000.00"))
                 .dateTimeRegistration(LocalDateTime.now())
                 .build();
+    }
+
+    public static PeopleRequest peopleRequestBuild() {
+        return PeopleRequest.builder()
+              .namePeople("Danilo Silva")
+              .cpf("12345678901")
+              .age("30")
+              .sex(Sex.valueOf("MASCULINE"))
+              .telephone("73981978258")
+              .email("danilo@email.com")
+              .income(new BigDecimal("1000.00"))
+              .build();
     }
 }
