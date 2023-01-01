@@ -48,4 +48,13 @@ public class ExpenseApplicationService implements ExpenseService{
         log.info("[finished] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
         return new ExpenseDetailedResponse(expense, getPeopleViaID);
     }
+
+    @Override
+    public void deleteExpense(UUID idPeopleRegistered, UUID idExpense) {
+        log.info("[start] ApplicationService delete person's expense: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        peopleService.getPersonViaID(idPeopleRegistered);
+        Expense expense = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered, idExpense);
+        expenseRepository.deleteExpense(expense);
+        log.info("[finished] ApplicationService delete person's expense: " + idPeopleRegistered + " and idExpense: " + idExpense);
+    }
 }

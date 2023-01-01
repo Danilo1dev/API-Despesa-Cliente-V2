@@ -23,4 +23,9 @@ public interface ExpenseAPI {
     @ResponseStatus(HttpStatus.OK)
     ExpenseDetailedResponse getExpensePeopleId(@PathVariable UUID idPeopleRegistered,
                                                @PathVariable UUID idExpense);
+
+    @DeleteMapping(value = "{idPeopleRegistered}/{idExpense}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteExpensePeopleId(@PathVariable UUID idPeopleRegistered,
+                               @PathVariable UUID idExpense);
 }

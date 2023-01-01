@@ -11,4 +11,6 @@ public interface ExpenseService {
     ExpenseResponse createExpense(UUID idPeopleRegistered, ExpenseRequest expenseRequest);
     List<ExpensePeopleListResponse> searchPersonExpenseWithId(UUID idPeopleRegistered);
     ExpenseDetailedResponse searchPersonExpenseWithId(UUID idPeopleRegistered, UUID idExpense);
+
+    void deleteExpense(UUID idPeopleRegistered, UUID idExpense);
 }

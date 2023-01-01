@@ -40,4 +40,11 @@ public class ExpenseInfraRepository implements ExpenseRepository {
         log.info("[finished] ExpenseInfraRepository - searchExpenseOfPeopleId");
         return expense;
     }
+
+    @Override
+    public void deleteExpense(Expense expense) {
+        log.info("[start] ExpenseInfraRepository - deleteExpense");
+        expenseSpringDataJPARepository.delete(expense);
+        log.info("[finished] ExpenseInfraRepository - deleteExpense");
+    }
 }

@@ -36,4 +36,11 @@ public class ExpenseController implements ExpenseAPI  {
         log.info("[finished] List expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
         return expenseDetailed;
     }
+
+    @Override
+    public void deleteExpensePeopleId(UUID idPeopleRegistered, UUID idExpense) {
+        log.info("[start] Delete expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        expenseService.deleteExpense(idPeopleRegistered, idExpense);
+        log.info("[finished] Delete expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+    }
 }
