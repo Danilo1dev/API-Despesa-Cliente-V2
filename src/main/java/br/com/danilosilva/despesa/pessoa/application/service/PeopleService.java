@@ -7,7 +7,7 @@ import java.util.UUID;
 public interface PeopleService {
     PeopleResponse createPeople(PeopleRequest peopleRequest);
     List<PeopleListResponse> searchAllPeople();
-    DetailedPersonResponse getPersonViaID(UUID idPeople);
+    PeopleDetailedResponse getPersonViaID(UUID idPeople);
     void deletePersonViaID(UUID idPeople);
     void changePersonViaID(UUID idPeople, ChangePeopleRequest changePeopleRequest);
 }

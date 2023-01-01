@@ -19,7 +19,7 @@ public interface PeopleAPI {
 
     @GetMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.OK)
-    DetailedPersonResponse getPersonViaID(@PathVariable UUID idPeople);
+    PeopleDetailedResponse getPersonViaID(@PathVariable UUID idPeople);
 
     @DeleteMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

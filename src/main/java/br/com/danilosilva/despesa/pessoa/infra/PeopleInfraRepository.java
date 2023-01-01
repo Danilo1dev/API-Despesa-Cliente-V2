@@ -41,7 +41,7 @@ public class PeopleInfraRepository implements PeopleRepository {
     public People searchPersonById(UUID idPeople) {
         log.info("[start]PeopleInfraRepository - searchPersonById");
         People people = peopleSpringDataJPARepository.findById(idPeople)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Person not Found! id = " + idPeople));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Person not Found: " + idPeople));
         log.info("[finished]PeopleInfraRepository - searchPersonById");
         return people;
     }

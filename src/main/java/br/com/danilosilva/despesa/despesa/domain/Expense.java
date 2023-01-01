@@ -1,5 +1,8 @@
 package br.com.danilosilva.despesa.despesa.domain;
 
+import br.com.danilosilva.despesa.despesa.application.api.ExpenseChangeRequest;
+import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
+import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,8 +25,15 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idExpense", updatable = false, unique = true, nullable = false)
     private UUID idExpense;
+
     @NotNull
-    private String name;
+    @Column(columnDefinition = "uuid", name = "idPeopleRegistered", nullable = false)
+    private UUID idPeopleRegistered;
+
+    @ManyToOne
+    private People people;
+    @NotNull
+    private String nameExpense;
     @NotNull
     @NotBlank(message = "Enter a Description")
     @Size(max = 100)
@@ -32,18 +42,26 @@ public class Expense {
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private ExpenseType expenseType;
-    @NotNull
     private LocalDate expenseDate;
 
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
 
-    public Expense(String name, String description, BigDecimal price, ExpenseType expenseType, LocalDate expenseDate) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.expenseType = expenseType;
-        this.expenseDate = expenseDate;
+    public Expense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+        this.idPeopleRegistered = idPeopleRegistered;
+        this.nameExpense = expenseRequest.getNameExpense();
+        this.description = expenseRequest.getDescription();
+        this.price = expenseRequest.getPrice();
+        this.expenseType = expenseRequest.getExpenseType();
+        this.expenseDate = expenseRequest.getExpenseDate();
         this.dateTimeRegistrationExpense = LocalDateTime.now();
+    }
+    public void updateExpense(ExpenseChangeRequest expenseChangeRequest) {
+        this.nameExpense = expenseChangeRequest.getNameExpense();
+        this.description = expenseChangeRequest.getDescription();
+        this.price = expenseChangeRequest.getPrice();
+        this.expenseType = expenseChangeRequest.getExpenseType();
+        this.expenseDate = expenseChangeRequest.getExpenseDate();
+        this.dateTimeLastChangeExpense = LocalDateTime.now();
     }
 }

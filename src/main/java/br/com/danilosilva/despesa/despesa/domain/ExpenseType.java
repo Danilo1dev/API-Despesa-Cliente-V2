@@ -2,7 +2,7 @@ package br.com.danilosilva.despesa.despesa.domain;
 
 public enum ExpenseType {
     FOOD,
-    SUBSCRIPTION,
+    SIGNATURE,
     PERSONAL_CARE,
     SHOPPING,
     DEBT,
@@ -14,5 +14,5 @@ public enum ExpenseType {
     HEALTH,
     WORK,
     TRANSPORTATION,
-    TRAVEL;
+    TRIP;
 }
