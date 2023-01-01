@@ -3,10 +3,7 @@ package br.com.danilosilva.despesa.pessoa.domain;
 import br.com.danilosilva.despesa.despesa.domain.Expense;
 import br.com.danilosilva.despesa.pessoa.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -19,6 +16,7 @@ import java.util.UUID;
 
 @Entity
 @Getter
+@Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Table(name = "people")
