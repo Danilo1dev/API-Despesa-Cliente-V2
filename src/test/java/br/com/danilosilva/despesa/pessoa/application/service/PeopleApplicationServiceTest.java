@@ -29,6 +29,7 @@ class PeopleApplicationServiceTest {
 
     @Test
     void searchAllPeople() {
+
     }
 
     @Test
@@ -37,6 +38,10 @@ class PeopleApplicationServiceTest {
 
     @Test
     void deletePersonViaID() {
+    }
+
+    @Test
+    void updatePersonViaID() {
     }
 
     @Test
