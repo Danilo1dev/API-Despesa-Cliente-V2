@@ -18,4 +18,9 @@ public interface ExpenseAPI {
     @GetMapping(value = "{idPeopleRegistered}")
     @ResponseStatus(HttpStatus.OK)
     List<ExpensePeopleListResponse> getExpensePeopleId(@PathVariable UUID idPeopleRegistered);
+
+    @GetMapping(value = "{idPeopleRegistered}/{idExpense}")
+    @ResponseStatus(HttpStatus.OK)
+    ExpenseDetailedResponse getExpensePeopleId(@PathVariable UUID idPeopleRegistered,
+                                               @PathVariable UUID idExpense);
 }
