@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 @Value
-public class DetailedPersonResponse {
+public class PeopleDetailedResponse {
     private UUID idPeople;
     private String namePeople;
     private String age;
@@ -18,7 +18,7 @@ public class DetailedPersonResponse {
     private BigDecimal income;
     private LocalDateTime dateTimeRegistration;
 
-    public DetailedPersonResponse(People people) {
+    public PeopleDetailedResponse(People people) {
         this.idPeople = people.getIdPeople();
         this.namePeople = people.getNamePeople();
         this.age = people.getAge();

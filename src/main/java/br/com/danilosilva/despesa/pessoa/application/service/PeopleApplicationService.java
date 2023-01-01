@@ -35,12 +35,12 @@ public class PeopleApplicationService implements PeopleService {
     }
 
     @Override
-    public DetailedPersonResponse getPersonViaID(UUID idPeople) {
+    public PeopleDetailedResponse getPersonViaID(UUID idPeople) {
         log.info("[start] PeopleApplicationService - getPersonViaID");
         log.info("[idPeople] {}", idPeople);
         People people = peopleRepository.searchPersonById(idPeople);
         log.info("[finished] PeopleApplicationService - getPersonViaID");
-        return new DetailedPersonResponse(people);
+        return new PeopleDetailedResponse(people);
     }
 
     @Override

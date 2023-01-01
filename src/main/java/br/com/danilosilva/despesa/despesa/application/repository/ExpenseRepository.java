@@ -6,5 +6,6 @@ import java.util.UUID;
 
 public interface ExpenseRepository {
     Expense saveExpense(Expense expense);
-    List<Expense> searchExpenseOfPeopleWithId(UUID idPeopleRegistered);
+    List<Expense> searchExpenseOfPeopleId(UUID idPeopleRegistered);
+    Expense searchExpenseOfPeopleId(UUID idPeopleRegistered, UUID idExpense);
 }

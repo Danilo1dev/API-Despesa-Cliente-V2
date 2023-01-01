@@ -6,6 +6,7 @@ import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseResponse;
 import br.com.danilosilva.despesa.despesa.application.repository.ExpenseRepository;
 import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.pessoa.application.api.PeopleDetailedResponse;
 import br.com.danilosilva.despesa.pessoa.application.service.PeopleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -34,7 +35,7 @@ public class ExpenseApplicationService implements ExpenseService{
     public List<ExpensePeopleListResponse> searchPersonExpenseWithId(UUID idPeopleRegistered) {
         log.info("[start] ApplicationService search person's expense list: " + idPeopleRegistered);
         peopleService.getPersonViaID(idPeopleRegistered);
-        List<Expense> expensePeople = expenseRepository.searchExpenseOfPeopleWithId(idPeopleRegistered);
+        List<Expense> expensePeople = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered);
         log.info("[finished] ApplicationService search person's expense list: " + idPeopleRegistered);
         return ExpensePeopleListResponse.converte(expensePeople);
     }
@@ -42,7 +43,9 @@ public class ExpenseApplicationService implements ExpenseService{
     @Override
     public ExpenseDetailedResponse searchPersonExpenseWithId(UUID idPeopleRegistered, UUID idExpense) {
         log.info("[start] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        PeopleDetailedResponse getPeopleViaID = peopleService.getPersonViaID(idPeopleRegistered);
+        Expense expense = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered, idExpense);
         log.info("[finished] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
-        return null;
+        return new ExpenseDetailedResponse(expense, getPeopleViaID);
     }
 }
