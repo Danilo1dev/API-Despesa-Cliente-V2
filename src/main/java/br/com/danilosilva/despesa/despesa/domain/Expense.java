@@ -2,6 +2,7 @@ package br.com.danilosilva.despesa.despesa.domain;
 
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
+import br.com.danilosilva.despesa.pessoa.domain.People;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,9 @@ public class Expense {
     @NotNull
     @Column(columnDefinition = "uuid", name = "idPeopleRegistered", nullable = false)
     private UUID idPeopleRegistered;
+
+    @ManyToOne
+    private People people;
     @NotNull
     private String nameExpense;
     @NotNull

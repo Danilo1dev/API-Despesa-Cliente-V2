@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.domain;
 
+import br.com.danilosilva.despesa.despesa.domain.Expense;
 import br.com.danilosilva.despesa.pessoa.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
 import lombok.AccessLevel;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -29,8 +31,8 @@ public class People {
     @NotBlank
     private String namePeople;
 
-//    @OneToMany (mappedBy = "people")
-//    private List<Expense> expenses;
+    @OneToMany (mappedBy = "people")
+    private List<Expense> expenses;
 
     @NotBlank
     @Size(max = 11)
