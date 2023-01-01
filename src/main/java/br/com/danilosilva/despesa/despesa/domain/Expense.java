@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.despesa.domain;
 
+import br.com.danilosilva.despesa.despesa.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -50,5 +51,13 @@ public class Expense {
         this.expenseType = expenseRequest.getExpenseType();
         this.expenseDate = expenseRequest.getExpenseDate();
         this.dateTimeRegistrationExpense = LocalDateTime.now();
+    }
+    public void updateExpense(ExpenseChangeRequest expenseChangeRequest) {
+        this.nameExpense = expenseChangeRequest.getNameExpense();
+        this.description = expenseChangeRequest.getDescription();
+        this.price = expenseChangeRequest.getPrice();
+        this.expenseType = expenseChangeRequest.getExpenseType();
+        this.expenseDate = expenseChangeRequest.getExpenseDate();
+        this.dateTimeLastChangeExpense = LocalDateTime.now();
     }
 }

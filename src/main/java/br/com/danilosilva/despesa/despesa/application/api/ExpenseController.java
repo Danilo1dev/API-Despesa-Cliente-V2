@@ -47,6 +47,7 @@ public class ExpenseController implements ExpenseAPI  {
     @Override
     public void updateExpensePeopleId(UUID idPeopleRegistered, UUID idExpense, ExpenseChangeRequest expenseChangeRequest) {
         log.info("[start] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
+        expenseService.updateExpensePeopleWithId(idPeopleRegistered, idExpense, expenseChangeRequest);
         log.info("[finished] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
     }
 }
