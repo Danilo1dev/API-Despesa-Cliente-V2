@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.pessoa.application.api;
+package br.com.danilosilva.despesa.people.application.api;
 
-import br.com.danilosilva.despesa.pessoa.domain.People;
+import br.com.danilosilva.despesa.people.domain.People;
 import lombok.Value;
 import java.util.List;
 import java.util.UUID;

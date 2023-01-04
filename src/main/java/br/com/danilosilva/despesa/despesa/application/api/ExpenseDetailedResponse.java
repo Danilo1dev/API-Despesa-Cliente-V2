@@ -2,7 +2,7 @@ package br.com.danilosilva.despesa.despesa.application.api;
 
 import br.com.danilosilva.despesa.despesa.domain.Expense;
 import br.com.danilosilva.despesa.despesa.domain.ExpenseType;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
 import lombok.Value;
 import java.math.BigDecimal;
 import java.time.LocalDate;

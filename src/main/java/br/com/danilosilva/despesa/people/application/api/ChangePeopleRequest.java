@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.pessoa.application.api;
+package br.com.danilosilva.despesa.people.application.api;
 
-import br.com.danilosilva.despesa.pessoa.domain.Sex;
+import br.com.danilosilva.despesa.people.domain.Sex;
 import lombok.Builder;
 import lombok.Value;
 import javax.persistence.EnumType;

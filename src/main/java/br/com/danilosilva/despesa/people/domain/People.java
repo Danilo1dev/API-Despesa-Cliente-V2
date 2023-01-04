@@ -1,8 +1,8 @@
-package br.com.danilosilva.despesa.pessoa.domain;
+package br.com.danilosilva.despesa.people.domain;
 
 import br.com.danilosilva.despesa.despesa.domain.Expense;
-import br.com.danilosilva.despesa.pessoa.application.api.ChangePeopleRequest;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;

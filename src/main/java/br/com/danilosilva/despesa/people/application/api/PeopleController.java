@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.pessoa.application.api;
+package br.com.danilosilva.despesa.people.application.api;
 
-import br.com.danilosilva.despesa.pessoa.application.service.PeopleService;
+import br.com.danilosilva.despesa.people.application.service.PeopleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

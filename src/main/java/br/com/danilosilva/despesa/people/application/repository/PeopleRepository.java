@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.pessoa.application.repository;
+package br.com.danilosilva.despesa.people.application.repository;
 
-import br.com.danilosilva.despesa.pessoa.domain.People;
+import br.com.danilosilva.despesa.people.domain.People;
 import java.util.List;
 import java.util.UUID;
 

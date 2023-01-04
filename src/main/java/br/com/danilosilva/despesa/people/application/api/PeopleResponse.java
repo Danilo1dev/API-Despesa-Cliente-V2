@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.pessoa.application.api;
+package br.com.danilosilva.despesa.people.application.api;
 
 import lombok.Builder;
 import lombok.Value;

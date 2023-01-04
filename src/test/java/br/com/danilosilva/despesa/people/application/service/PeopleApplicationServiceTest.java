@@ -1,10 +1,10 @@
-package br.com.danilosilva.despesa.pessoa.application.service;
+package br.com.danilosilva.despesa.people.application.service;
 
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleDetailedResponse;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleListResponse;
-import br.com.danilosilva.despesa.pessoa.application.api.PeopleResponse;
-import br.com.danilosilva.despesa.pessoa.application.mock.MockPeople;
-import br.com.danilosilva.despesa.pessoa.application.repository.PeopleRepository;
+import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.people.application.api.PeopleListResponse;
+import br.com.danilosilva.despesa.people.application.api.PeopleResponse;
+import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
+import br.com.danilosilva.despesa.people.application.mock.MockPeople;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
