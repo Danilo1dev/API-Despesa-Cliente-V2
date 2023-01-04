@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.pessoa.application.mock;
 
+import br.com.danilosilva.despesa.pessoa.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleRequest;
 import br.com.danilosilva.despesa.pessoa.domain.People;
 import br.com.danilosilva.despesa.pessoa.domain.Sex;
@@ -33,6 +34,16 @@ public class MockPeople {
               .sex(Sex.valueOf("MASCULINE"))
               .telephone("73981978258")
               .email("danilo@email.com")
+              .income(new BigDecimal("1000.00"))
+              .build();
+    }
+
+    public static ChangePeopleRequest changePeopleRequestBuild() {
+        return ChangePeopleRequest.builder()
+              .namePeople("Danilo Silva Ferreira")
+              .age("33")
+              .sex(Sex.valueOf("FEMININE"))
+              .telephone("73981978259")
               .income(new BigDecimal("1000.00"))
               .build();
     }
