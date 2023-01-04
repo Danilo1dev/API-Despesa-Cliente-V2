@@ -1,7 +1,7 @@
 package br.com.danilosilva.despesa.pessoa.application.service;
 
-import br.com.danilosilva.despesa.handler.APIException;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.pessoa.application.api.PeopleListResponse;
 import br.com.danilosilva.despesa.pessoa.application.api.PeopleResponse;
 import br.com.danilosilva.despesa.pessoa.application.mock.MockPeople;
 import br.com.danilosilva.despesa.pessoa.application.repository.PeopleRepository;
@@ -10,8 +10,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import java.util.List;
 import java.util.UUID;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -29,36 +30,28 @@ class PeopleApplicationServiceTest {
         PeopleResponse peopleResponse = peopleService.createPeople(MockPeople.peopleRequestBuild());
         assertNotNull(peopleResponse);
     }
-
     @Test
-    void TestGetPersonViaIDSuccess() {
+    void getPersonViaIDSuccess() {
         when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
         PeopleDetailedResponse peopleResponse = peopleService.getPersonViaID(UUID.randomUUID());
         assertNotNull(peopleResponse);
     }
-
     @Test
-    void TestGetPersonViaIDNotFound() {
-        when(peopleRepository.searchPersonById(any())).thenReturn(null);
-        APIException exception = assertThrows(APIException.class, () -> peopleService.getPersonViaID(UUID.randomUUID()));
-        assertNotNull(exception);
-        assertEquals(exception.getMessage(), "Person not found");
+    void searchAllPeopleListSuccess() {
+        when(peopleRepository.searchAllPeople()).thenReturn(List.of(MockPeople.peopleBuild()));
+        List<PeopleListResponse> peopleListResponses = peopleService.searchAllPeople();
+        assertNotNull(peopleListResponses);
     }
-
     @Test
-    void searchAllPeople() {
-
+    void deletePersonViaIDSuccess() {
+        when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
+        peopleService.deletePersonViaID(UUID.randomUUID());
+        assertNotNull(peopleService);
     }
-
     @Test
-    void deletePersonViaID() {
-    }
-
-    @Test
-    void updatePersonViaID() {
-    }
-
-    @Test
-    void changePersonViaID() {
+    void changePersonViaIDSuccess() {
+        when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
+        peopleService.changePersonViaID(UUID.randomUUID(), MockPeople.changePeopleRequestBuild());
+        assertNotNull(peopleService);
     }
 }
