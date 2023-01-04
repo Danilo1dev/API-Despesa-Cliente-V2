@@ -40,6 +40,8 @@ class PeopleInfraRepositoryTest {
         assertNotNull(peopleRepository);
     }
     @Test
-    void deletePeople() {
+    void deletePeopleSuccess() {
+        peopleRepository.deletePeople(MockPeople.peopleBuild());
+        assertNotNull(peopleRepository);
     }
 }
