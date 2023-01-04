@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,11 +33,12 @@ class PeopleInfraRepositoryTest {
         peopleRepository.searchAllPeople();
         assertNotNull(peopleRepository);
     }
-
     @Test
-    void searchPersonById() {
+    void searchPersonByIdSuccess() {
+        when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.of(MockPeople.peopleBuild()));
+        peopleRepository.searchPersonById(any());
+        assertNotNull(peopleRepository);
     }
-
     @Test
     void deletePeople() {
     }
