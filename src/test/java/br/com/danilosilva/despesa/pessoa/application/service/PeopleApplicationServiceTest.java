@@ -31,16 +31,16 @@ class PeopleApplicationServiceTest {
         assertNotNull(peopleResponse);
     }
     @Test
-    void getPersonViaIDSuccess() {
-        when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
-        PeopleDetailedResponse peopleResponse = peopleService.getPersonViaID(UUID.randomUUID());
-        assertNotNull(peopleResponse);
-    }
-    @Test
     void searchAllPeopleListSuccess() {
         when(peopleRepository.searchAllPeople()).thenReturn(List.of(MockPeople.peopleBuild()));
         List<PeopleListResponse> peopleListResponses = peopleService.searchAllPeople();
         assertNotNull(peopleListResponses);
+    }
+    @Test
+    void getPersonViaIDSuccess() {
+        when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
+        PeopleDetailedResponse peopleResponse = peopleService.getPersonViaID(UUID.randomUUID());
+        assertNotNull(peopleResponse);
     }
     @Test
     void deletePersonViaIDSuccess() {
