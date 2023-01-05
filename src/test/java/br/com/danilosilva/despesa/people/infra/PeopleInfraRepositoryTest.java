@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.people.infra;
 
+import br.com.danilosilva.despesa.handler.APIException;
 import br.com.danilosilva.despesa.people.application.mock.MockPeople;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.Optional;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.UUID;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -36,6 +38,14 @@ class PeopleInfraRepositoryTest {
         when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.of(MockPeople.peopleBuild()));
         peopleRepository.searchPersonById(any());
         assertNotNull(peopleRepository);
+    }
+    @Test
+    void searchPersonByIdNotFound() {
+        when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.empty());
+        RuntimeException exception = assertThrows(APIException.class, () ->
+                peopleRepository.searchPersonById(UUID.randomUUID()));
+        assertNotNull(exception);
+        assertNotNull("Person not Found", exception.getMessage());
     }
     @Test
     void deletePeopleSuccess() {
