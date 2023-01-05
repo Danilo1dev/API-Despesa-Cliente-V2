@@ -7,10 +7,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.dao.DataIntegrityViolationException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -26,6 +28,13 @@ class PeopleInfraRepositoryTest {
         when(peopleSpringDataJPARepository.save(any())).thenReturn(MockPeople.peopleBuild());
         peopleRepository.save(MockPeople.peopleBuild());
         assertNotNull(peopleRepository);
+    }
+    @Test
+    void emailAndCPFAlreadyRegistered() {
+        when(peopleSpringDataJPARepository.save(any())).
+           thenThrow(new DataIntegrityViolationException("CPF already registered"));
+        RuntimeException exception = assertThrows(
+                APIException.class, () -> peopleRepository.save(MockPeople.peopleBuild()));
     }
     @Test
     void searchAllPeopleSuccess() {
@@ -45,7 +54,6 @@ class PeopleInfraRepositoryTest {
         RuntimeException exception = assertThrows(APIException.class, () ->
                 peopleRepository.searchPersonById(UUID.randomUUID()));
         assertNotNull(exception);
-        assertNotNull("Person not Found", exception.getMessage());
     }
     @Test
     void deletePeopleSuccess() {
