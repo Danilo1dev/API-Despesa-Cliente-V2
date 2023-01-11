@@ -3,8 +3,8 @@ package br.com.danilosilva.despesa.people.application.service;
 import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
 import br.com.danilosilva.despesa.people.application.api.PeopleListResponse;
 import br.com.danilosilva.despesa.people.application.api.PeopleResponse;
-import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
 import br.com.danilosilva.despesa.people.application.mock.MockPeople;
+import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 import java.util.UUID;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +23,6 @@ class PeopleApplicationServiceTest {
     private PeopleApplicationService peopleService;
     @Mock
     private PeopleRepository peopleRepository;
-
     @Test
     void TestCreatePeopleSucess() {
         when(peopleRepository.save(any())).thenReturn(MockPeople.peopleBuild());
@@ -41,6 +40,14 @@ class PeopleApplicationServiceTest {
         when(peopleRepository.searchPersonById(any())).thenReturn(MockPeople.peopleBuild());
         PeopleDetailedResponse peopleResponse = peopleService.getPersonViaID(UUID.randomUUID());
         assertNotNull(peopleResponse);
+    }
+    @Test
+    void getPersonViaIDNotFound() {
+        when(peopleRepository.searchPersonById(any())).thenThrow(new RuntimeException("Person not found"));
+        RuntimeException exception = assertThrows(RuntimeException.class, () ->
+                peopleService.getPersonViaID(UUID.randomUUID()));
+        assertNotNull(exception);
+        assertEquals("Person not found", exception.getMessage());
     }
     @Test
     void deletePersonViaIDSuccess() {
