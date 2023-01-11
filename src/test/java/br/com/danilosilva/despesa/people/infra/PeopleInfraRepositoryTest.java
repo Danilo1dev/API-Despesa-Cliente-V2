@@ -33,7 +33,7 @@ class PeopleInfraRepositoryTest {
     void emailAndCPFAlreadyRegistered() {
         when(peopleSpringDataJPARepository.save(any())).
            thenThrow(new DataIntegrityViolationException("CPF already registered"));
-        RuntimeException exception = assertThrows(
+        APIException exception = assertThrows(
                 APIException.class, () -> peopleRepository.save(MockPeople.peopleBuild()));
     }
     @Test
