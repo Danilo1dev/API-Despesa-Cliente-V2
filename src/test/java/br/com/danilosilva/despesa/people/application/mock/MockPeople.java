@@ -2,6 +2,7 @@ package br.com.danilosilva.despesa.people.application.mock;
 
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.PeopleResponse;
 import br.com.danilosilva.despesa.people.domain.People;
 import br.com.danilosilva.despesa.people.domain.Sex;
 import lombok.Builder;
@@ -46,5 +47,10 @@ public class MockPeople {
               .telephone("73981978259")
               .income(new BigDecimal("1000.00"))
               .build();
+    }
+    public static PeopleResponse peopleResponseBuild() {
+        return PeopleResponse.builder()
+               .idPeople(UUID.randomUUID())
+                .build();
     }
 }
