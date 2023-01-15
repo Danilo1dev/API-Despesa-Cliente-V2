@@ -48,8 +48,7 @@ class PeopleControllerTest {
     @Test
     void getPersonViaID() {
         when(peopleService.getPersonViaID(any())).thenReturn(peopleDetailedResponse);
-        PeopleDetailedResponse peopleDetailedResponse = peopleController.getPersonViaID(any());
-        verify(peopleService).getPersonViaID(any());
+        PeopleDetailedResponse peopleDetailedResponse = peopleController.getPersonViaID(UUID.randomUUID());
         verify(peopleService,times (1)).getPersonViaID(any());
         Assertions.assertNotNull(peopleDetailedResponse);
     }
