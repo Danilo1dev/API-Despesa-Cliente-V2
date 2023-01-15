@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -33,6 +34,7 @@ class PeopleControllerTest {
         peopleController.postPeople(peopleRequest);
         verify(peopleService).createPeople(peopleRequest);
         verify(peopleService,times (1)).createPeople(any());
+        Assertions.assertNotNull(peopleResponse);
     }
     @Test
     void getEveryBody() {
@@ -52,8 +54,10 @@ class PeopleControllerTest {
     }
     @Test
     void deletePersonViaID() {
+        peopleController.deletePersonViaID(UUID.randomUUID());
+        verify(peopleService,times (1)).deletePersonViaID(any());
+        Assertions.assertNotNull(peopleController);
     }
-
     @Test
     void changePeople() {
     }
