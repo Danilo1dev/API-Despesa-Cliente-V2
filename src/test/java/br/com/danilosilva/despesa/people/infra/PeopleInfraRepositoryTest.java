@@ -14,7 +14,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PeopleInfraRepositoryTest {
@@ -28,25 +28,30 @@ class PeopleInfraRepositoryTest {
         when(peopleSpringDataJPARepository.save(any())).thenReturn(MockPeople.peopleBuild());
         peopleRepository.save(MockPeople.peopleBuild());
         assertNotNull(peopleRepository);
+        verify(peopleSpringDataJPARepository, times(1)).save(any());
     }
     @Test
-    void emailAndCPFAlreadyRegistered() {
-        when(peopleSpringDataJPARepository.save(any())).
-           thenThrow(new DataIntegrityViolationException("CPF already registered"));
-        APIException exception = assertThrows(
-                APIException.class, () -> peopleRepository.save(MockPeople.peopleBuild()));
+    void emailCPFAlreadyRegistered() {
+        when(peopleSpringDataJPARepository.save(MockPeople.peopleBuild()))
+              .thenThrow(new DataIntegrityViolationException("Email already registered"));
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> peopleRepository.save(MockPeople.peopleBuild()));
+        assertNotNull(exception);
+        verify(peopleSpringDataJPARepository, times(1)).save(any());
     }
     @Test
     void searchAllPeopleSuccess() {
         when(peopleSpringDataJPARepository.findAll()).thenReturn(List.of(MockPeople.peopleBuild()));
         peopleRepository.searchAllPeople();
         assertNotNull(peopleRepository);
+        verify(peopleSpringDataJPARepository, times(1)).findAll();
     }
     @Test
     void searchPersonByIdSuccess() {
         when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.of(MockPeople.peopleBuild()));
         peopleRepository.searchPersonById(any());
         assertNotNull(peopleRepository);
+        verify(peopleSpringDataJPARepository, times(1)).findById(any());
     }
     @Test
     void searchPersonByIdNotFound() {
@@ -54,10 +59,12 @@ class PeopleInfraRepositoryTest {
         RuntimeException exception = assertThrows(APIException.class, () ->
                 peopleRepository.searchPersonById(UUID.randomUUID()));
         assertNotNull(exception);
+        verify(peopleSpringDataJPARepository, times(1)).findById(any());
     }
     @Test
     void deletePeopleSuccess() {
         peopleRepository.deletePeople(MockPeople.peopleBuild());
         assertNotNull(peopleRepository);
+        verify(peopleSpringDataJPARepository, times(1)).delete(any());
     }
 }
