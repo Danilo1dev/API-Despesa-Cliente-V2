@@ -18,11 +18,11 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PeopleApplicationServiceTest {
-
     @InjectMocks
     private PeopleApplicationService peopleService;
     @Mock
     private PeopleRepository peopleRepository;
+
     @Test
     void TestCreatePeopleSucess() {
         when(peopleRepository.save(any())).thenReturn(MockPeople.peopleBuild());
