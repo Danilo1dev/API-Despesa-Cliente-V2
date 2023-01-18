@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.despesa.application.api;
+package br.com.danilosilva.despesa.expense.application.api;
 
-import br.com.danilosilva.despesa.despesa.application.service.ExpenseService;
+import br.com.danilosilva.despesa.expense.application.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

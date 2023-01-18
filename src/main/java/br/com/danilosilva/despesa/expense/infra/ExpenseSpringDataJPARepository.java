@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.despesa.infra;
+package br.com.danilosilva.despesa.expense.infra;
 
-import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;

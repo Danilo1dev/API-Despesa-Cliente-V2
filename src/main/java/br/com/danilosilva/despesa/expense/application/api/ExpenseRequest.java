@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.despesa.application.api;
+package br.com.danilosilva.despesa.expense.application.api;
 
-import br.com.danilosilva.despesa.despesa.domain.ExpenseType;
+import br.com.danilosilva.despesa.expense.domain.ExpenseType;
 import lombok.Value;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Value
-public class ExpenseChangeRequest {
+public class ExpenseRequest {
+
     @NotNull
     private String nameExpense;
     @NotNull

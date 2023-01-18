@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.despesa.application.api;
+package br.com.danilosilva.despesa.expense.application.api;
 
 import lombok.Value;
 import java.util.UUID;

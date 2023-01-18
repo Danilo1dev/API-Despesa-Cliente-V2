@@ -1,7 +1,7 @@
-package br.com.danilosilva.despesa.despesa.infra;
+package br.com.danilosilva.despesa.expense.infra;
 
-import br.com.danilosilva.despesa.despesa.application.repository.ExpenseRepository;
-import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.expense.application.repository.ExpenseRepository;
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

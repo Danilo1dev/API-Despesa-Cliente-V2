@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.despesa.domain;
+package br.com.danilosilva.despesa.expense.domain;
 
 public enum ExpenseType {
     FOOD,

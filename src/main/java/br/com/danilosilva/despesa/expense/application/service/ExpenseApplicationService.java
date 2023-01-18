@@ -1,8 +1,8 @@
-package br.com.danilosilva.despesa.despesa.application.service;
+package br.com.danilosilva.despesa.expense.application.service;
 
-import br.com.danilosilva.despesa.despesa.application.api.*;
-import br.com.danilosilva.despesa.despesa.application.repository.ExpenseRepository;
-import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.expense.application.api.*;
+import br.com.danilosilva.despesa.expense.application.repository.ExpenseRepository;
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
 import br.com.danilosilva.despesa.people.application.service.PeopleService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package br.com.danilosilva.despesa.people.domain;
 
-import br.com.danilosilva.despesa.despesa.domain.Expense;
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
 import lombok.*;

@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.despesa.application.api;
+package br.com.danilosilva.despesa.expense.application.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

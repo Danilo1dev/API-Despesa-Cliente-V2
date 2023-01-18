@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.despesa.application.service;
+package br.com.danilosilva.despesa.expense.application.service;
 
-import br.com.danilosilva.despesa.despesa.application.api.*;
+import br.com.danilosilva.despesa.expense.application.api.*;
 import java.util.List;
 import java.util.UUID;
 
