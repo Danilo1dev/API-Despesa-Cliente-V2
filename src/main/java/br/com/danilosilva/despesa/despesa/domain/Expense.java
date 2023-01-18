@@ -2,7 +2,7 @@ package br.com.danilosilva.despesa.despesa.domain;
 
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.despesa.application.api.ExpenseRequest;
-import br.com.danilosilva.despesa.pessoa.domain.People;
+import br.com.danilosilva.despesa.people.domain.People;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
