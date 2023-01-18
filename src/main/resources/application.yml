@@ -7,13 +7,7 @@ springdoc:
     path: /public/swagger
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:demodb
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+  data:
+    mongodb:
+      uri: mongodb://{despesaclienteapi}:{despesaclienteapi}@localhost:27017
+      database: boot-mongodb
