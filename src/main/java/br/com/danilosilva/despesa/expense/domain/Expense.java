@@ -4,6 +4,7 @@ import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.people.domain.People;
 import lombok.*;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -31,6 +32,7 @@ public class Expense {
     private UUID idPeopleRegistered;
 
     @DocumentReference(lazy = true, db = "people")
+    @ReadOnlyProperty
     private People people;
 
     @NotNull
