@@ -3,10 +3,8 @@ package br.com.danilosilva.despesa.expense.domain;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.people.domain.People;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import javax.persistence.EnumType;
@@ -20,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Builder
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -27,6 +26,7 @@ import java.util.UUID;
 public class Expense {
     @Id
     private UUID idExpense;
+    @Indexed
     @NotNull
     private UUID idPeopleRegistered;
 
