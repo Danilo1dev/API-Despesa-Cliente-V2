@@ -7,7 +7,11 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import javax.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -16,22 +20,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Document(collection = "expense")
 public class Expense {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idExpense", updatable = false, unique = true, nullable = false)
     private UUID idExpense;
-
     @NotNull
-    @Column(columnDefinition = "uuid", name = "idPeopleRegistered", nullable = false)
     private UUID idPeopleRegistered;
 
-    @ManyToOne
+    @DocumentReference(lazy = true, db = "people")
     private People people;
+
     @NotNull
     private String nameExpense;
     @NotNull
