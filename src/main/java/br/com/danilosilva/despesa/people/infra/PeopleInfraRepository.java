@@ -15,13 +15,13 @@ import java.util.UUID;
 @Log4j2
 @RequiredArgsConstructor
 public class PeopleInfraRepository implements PeopleRepository {
-    private final PeopleSpringDataJPARepository peopleSpringDataJPARepository;
+    private final PeopleSpringDataMongoRepository peopleSpringDataMongoRepository;
 
     @Override
     public People save(People people) {
         log.info("[start] PeopleInfraRepository - savePeople");
         try {
-            peopleSpringDataJPARepository.save(people);
+            peopleSpringDataMongoRepository.save(people);
         }catch (DataIntegrityViolationException e){
             throw APIException.build(HttpStatus.BAD_REQUEST, "Email or CPF already registered",e);
         }
@@ -32,7 +32,7 @@ public class PeopleInfraRepository implements PeopleRepository {
     @Override
     public List<People> searchAllPeople() {
         log.info("[start] PeopleInfraRepository - searchAllPeople");
-        List<People> everybody = peopleSpringDataJPARepository.findAll();
+        List<People> everybody = peopleSpringDataMongoRepository.findAll();
         log.info("[finished] PeopleInfraRepository - searchAllPeople");
         return everybody;
     }
@@ -40,7 +40,7 @@ public class PeopleInfraRepository implements PeopleRepository {
     @Override
     public People searchPersonById(UUID idPeople) {
         log.info("[start]PeopleInfraRepository - searchPersonById");
-        People people = peopleSpringDataJPARepository.findById(idPeople)
+        People people = peopleSpringDataMongoRepository.findById(idPeople)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Person not Found: " + idPeople));
         log.info("[finished]PeopleInfraRepository - searchPersonById");
         return people;
@@ -49,7 +49,7 @@ public class PeopleInfraRepository implements PeopleRepository {
     @Override
     public void deletePeople(People people) {
         log.info("[start]PeopleInfraRepository - deletePeople");
-        peopleSpringDataJPARepository.delete(people);
+        peopleSpringDataMongoRepository.delete(people);
         log.info("[finished]PeopleInfraRepository - deletePeople");
     }
 }
