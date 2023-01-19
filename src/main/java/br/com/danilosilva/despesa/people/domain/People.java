@@ -4,6 +4,8 @@ import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
 import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,18 +16,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name = "people")
+@Document(collection = "people")
 public class People {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idPeople", updatable = false, unique = true, nullable = false)
     private UUID idPeople;
-
     @NotBlank
     private String namePeople;
 
@@ -34,7 +32,7 @@ public class People {
 
     @NotBlank
     @Size(max = 11)
-    @Column(unique = true)
+    @Indexed(unique = true)
     private String cpf;
     @NotBlank
     @Size(max = 2)
@@ -44,7 +42,7 @@ public class People {
     @NotBlank
     private String telephone;
     @Email
-    @Column(unique = true)
+    @Indexed(unique = true)
     private String email;
     @NotNull
     private BigDecimal income;
