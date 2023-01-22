@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Log4j2
@@ -35,7 +34,7 @@ public class PeopleApplicationService implements PeopleService {
     }
 
     @Override
-    public PeopleDetailedResponse getPersonViaID(UUID idPeople) {
+    public PeopleDetailedResponse getPersonViaID(String idPeople) {
         log.info("[start] PeopleApplicationService - getPersonViaID");
         log.info("[idPeople] {}", idPeople);
         People people = peopleRepository.searchPersonById(idPeople);
@@ -44,7 +43,7 @@ public class PeopleApplicationService implements PeopleService {
     }
 
     @Override
-    public void deletePersonViaID(UUID idPeople) {
+    public void deletePersonViaID(String idPeople) {
         log.info("[start] PeopleController - deletePersonViaID");
         People people = peopleRepository.searchPersonById(idPeople);
         peopleRepository.deletePeople(people);
@@ -52,7 +51,7 @@ public class PeopleApplicationService implements PeopleService {
     }
 
     @Override
-    public void changePersonViaID(UUID idPeople, ChangePeopleRequest changePeopleRequest) {
+    public void changePersonViaID(String idPeople, ChangePeopleRequest changePeopleRequest) {
         log.info("[start] PeopleApplicationService - patchPersonViaID");
         People people = peopleRepository.searchPersonById(idPeople);
         people.change(changePeopleRequest);

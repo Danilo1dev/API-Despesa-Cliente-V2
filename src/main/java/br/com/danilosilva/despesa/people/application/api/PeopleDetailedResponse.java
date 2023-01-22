@@ -5,10 +5,10 @@ import br.com.danilosilva.despesa.people.domain.Sex;
 import lombok.Value;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 @Value
 public class PeopleDetailedResponse {
-    private UUID idPeople;
+    private String idPeople;
     private String namePeople;
     private String age;
     private Sex sex;

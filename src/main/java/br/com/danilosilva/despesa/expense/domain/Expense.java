@@ -3,35 +3,37 @@ package br.com.danilosilva.despesa.expense.domain;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.people.domain.People;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import javax.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-@Entity
+@Builder
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Document(collection = "expense")
 public class Expense {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idExpense", updatable = false, unique = true, nullable = false)
-    private UUID idExpense;
-
+    private String idExpense;
+    @Indexed
     @NotNull
-    @Column(columnDefinition = "uuid", name = "idPeopleRegistered", nullable = false)
-    private UUID idPeopleRegistered;
+    private String idPeopleRegistered;
 
-    @ManyToOne
+    @DocumentReference(lazy = true, db = "people")
+    @ReadOnlyProperty
     private People people;
+
     @NotNull
     private String nameExpense;
     @NotNull
@@ -47,7 +49,7 @@ public class Expense {
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
 
-    public Expense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+    public Expense(String idPeopleRegistered, ExpenseRequest expenseRequest) {
         this.idPeopleRegistered = idPeopleRegistered;
         this.nameExpense = expenseRequest.getNameExpense();
         this.description = expenseRequest.getDescription();

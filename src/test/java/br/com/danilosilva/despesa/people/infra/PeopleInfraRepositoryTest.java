@@ -21,50 +21,50 @@ class PeopleInfraRepositoryTest {
     @InjectMocks
     private PeopleInfraRepository peopleRepository;
     @Mock
-    private PeopleSpringDataJPARepository peopleSpringDataJPARepository;
+    private PeopleSpringDataMongoRepository peopleSpringDataMongoRepository;
 
     @Test
     void saveSuccess() {
-        when(peopleSpringDataJPARepository.save(any())).thenReturn(MockPeople.peopleBuild());
+        when(peopleSpringDataMongoRepository.save(any())).thenReturn(MockPeople.peopleBuild());
         peopleRepository.save(MockPeople.peopleBuild());
         assertNotNull(peopleRepository);
-        verify(peopleSpringDataJPARepository, times(1)).save(any());
+        verify(peopleSpringDataMongoRepository, times(1)).save(any());
     }
     @Test
     void emailCPFAlreadyRegistered() {
-        when(peopleSpringDataJPARepository.save(MockPeople.peopleBuild()))
+        when(peopleSpringDataMongoRepository.save(MockPeople.peopleBuild()))
               .thenThrow(new DataIntegrityViolationException("Email already registered"));
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> peopleRepository.save(MockPeople.peopleBuild()));
         assertNotNull(exception);
-        verify(peopleSpringDataJPARepository, times(1)).save(any());
+        verify(peopleSpringDataMongoRepository, times(1)).save(any());
     }
     @Test
     void searchAllPeopleSuccess() {
-        when(peopleSpringDataJPARepository.findAll()).thenReturn(List.of(MockPeople.peopleBuild()));
+        when(peopleSpringDataMongoRepository.findAll()).thenReturn(List.of(MockPeople.peopleBuild()));
         peopleRepository.searchAllPeople();
         assertNotNull(peopleRepository);
-        verify(peopleSpringDataJPARepository, times(1)).findAll();
+        verify(peopleSpringDataMongoRepository, times(1)).findAll();
     }
     @Test
     void searchPersonByIdSuccess() {
-        when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.of(MockPeople.peopleBuild()));
+        when(peopleSpringDataMongoRepository.findById(any())).thenReturn(Optional.of(MockPeople.peopleBuild()));
         peopleRepository.searchPersonById(any());
         assertNotNull(peopleRepository);
-        verify(peopleSpringDataJPARepository, times(1)).findById(any());
+        verify(peopleSpringDataMongoRepository, times(1)).findById(any());
     }
     @Test
     void searchPersonByIdNotFound() {
-        when(peopleSpringDataJPARepository.findById(any())).thenReturn(Optional.empty());
+        when(peopleSpringDataMongoRepository.findById(any())).thenReturn(Optional.empty());
         RuntimeException exception = assertThrows(APIException.class, () ->
                 peopleRepository.searchPersonById(UUID.randomUUID()));
         assertNotNull(exception);
-        verify(peopleSpringDataJPARepository, times(1)).findById(any());
+        verify(peopleSpringDataMongoRepository, times(1)).findById(any());
     }
     @Test
     void deletePeopleSuccess() {
         peopleRepository.deletePeople(MockPeople.peopleBuild());
         assertNotNull(peopleRepository);
-        verify(peopleSpringDataJPARepository, times(1)).delete(any());
+        verify(peopleSpringDataMongoRepository, times(1)).delete(any());
     }
 }

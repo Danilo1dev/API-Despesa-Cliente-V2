@@ -3,12 +3,11 @@ package br.com.danilosilva.despesa.people.application.api;
 import br.com.danilosilva.despesa.people.domain.People;
 import lombok.Value;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
 public class PeopleListResponse {
-    private UUID idPeople;
+    private String idPeople;
     private String namePeople;
     private String cpf;
     private String telephone;

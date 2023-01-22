@@ -8,34 +8,33 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 @Log4j2
 @RequiredArgsConstructor
 public class ExpenseInfraRepository implements ExpenseRepository {
-    private final ExpenseSpringDataJPARepository expenseSpringDataJPARepository;
+    private final ExpenseSpringDataMongoRepository expenseSpringDataMongoRepository;
 
     @Override
     public Expense saveExpense(Expense expense) {
         log.info("[start] ExpenseInfraRepository - save");
-        expenseSpringDataJPARepository.save(expense);
+        expenseSpringDataMongoRepository.save(expense);
         log.info("[finished] ExpenseInfraRepository - save");
         return expense;
     }
 
     @Override
-    public List<Expense> searchExpenseOfPeopleId(UUID idPeopleRegistered) {
+    public List<Expense> searchExpenseOfPeopleId(String idPeopleRegistered) {
         log.info("[start] ExpenseInfraRepository - searchAllExpense");
-        var expense = expenseSpringDataJPARepository.findByIdPeopleRegistered(idPeopleRegistered);
+        var expense = expenseSpringDataMongoRepository.findByIdPeopleRegistered(idPeopleRegistered);
         log.info("[finished] ExpenseInfraRepository - searchAllExpense");
         return expense;
     }
 
     @Override
-    public Expense searchExpenseOfPeopleId(UUID idPeopleRegistered, UUID idExpense) {
+    public Expense searchExpenseOfPeopleId(String idPeopleRegistered, String idExpense) {
         log.info("[start] ExpenseInfraRepository - searchExpenseOfPeopleId");
-        var expense = expenseSpringDataJPARepository.findById(idExpense)
+        var expense = expenseSpringDataMongoRepository.findById(idExpense)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Expense not found: " + idExpense));
         log.info("[finished] ExpenseInfraRepository - searchExpenseOfPeopleId");
         return expense;
@@ -44,7 +43,7 @@ public class ExpenseInfraRepository implements ExpenseRepository {
     @Override
     public void deleteExpense(Expense expense) {
         log.info("[start] ExpenseInfraRepository - deleteExpense");
-        expenseSpringDataJPARepository.delete(expense);
+        expenseSpringDataMongoRepository.delete(expense);
         log.info("[finished] ExpenseInfraRepository - deleteExpense");
     }
 }

@@ -2,9 +2,9 @@ package br.com.danilosilva.despesa.people.application.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/people")
@@ -19,13 +19,13 @@ public interface PeopleAPI {
 
     @GetMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.OK)
-    PeopleDetailedResponse getPersonViaID(@PathVariable UUID idPeople);
+    PeopleDetailedResponse getPersonViaID(@PathVariable String idPeople);
 
     @DeleteMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void deletePersonViaID(@PathVariable UUID idPeople);
+    void deletePersonViaID(@PathVariable String idPeople);
 
     @PatchMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void changePeople(@PathVariable UUID idPeople, @Valid @RequestBody ChangePeopleRequest changePeopleRequest);
+    void changePeople(@PathVariable String idPeople, @Valid @RequestBody ChangePeopleRequest changePeopleRequest);
 }

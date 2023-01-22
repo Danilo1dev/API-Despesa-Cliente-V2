@@ -7,12 +7,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
 public class ExpensePeopleListResponse {
-    private UUID idExpense;
+    private String idExpense;
     private String nameExpense;
     private String description;
     private BigDecimal price;
