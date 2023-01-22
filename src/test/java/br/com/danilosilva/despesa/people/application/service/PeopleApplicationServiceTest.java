@@ -41,14 +41,14 @@ class PeopleApplicationServiceTest {
         PeopleDetailedResponse peopleResponse = peopleService.getPersonViaID(UUID.randomUUID().toString());
         assertNotNull(peopleResponse);
     }
-//    @Test
-//    void getPersonViaIDNotFound() {
-//        when(peopleRepository.searchPersonById(any())).thenThrow(new RuntimeException("Person not found"));
-//        RuntimeException exception = assertThrows(RuntimeException.class, () ->
-//                peopleService.getPersonViaID(UUID.randomUUID().toString());
-//        assertNotNull(exception);
-//        assertEquals("Person not found", exception.getMessage());
-//    }
+    @Test
+    void getPersonViaIDNotFound() {
+        when(peopleRepository.searchPersonById(any())).thenThrow(new RuntimeException("Person not found"));
+        RuntimeException exception = assertThrows(RuntimeException.class, () ->
+                peopleService.getPersonViaID(UUID.randomUUID().toString()));
+        assertNotNull(exception);
+        assertEquals("Person not found", exception.getMessage());
+    }
 
     @Test
     void deletePersonViaIDSuccess() {
