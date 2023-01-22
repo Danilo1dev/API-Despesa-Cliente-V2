@@ -10,5 +10,7 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      uri: ${MONGO_DB_URI:mongodb+srv://despesaclienteapi:<despesaclienteapi>@despesacliente-api.im0ueit.mongodb.net/?retryWrites=true&w=majority}
+      uri: ${MONGO_DB_URI:mongodb+srv://despesaclienteapi:despesaclienteapi@despesacliente-api.im0ueit.mongodb.net/?retryWrites=true&w=majority}
       database: boot-mongodb
+      auto-index-creation: true
+
