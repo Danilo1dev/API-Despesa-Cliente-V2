@@ -6,7 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -31,7 +30,7 @@ public class PeopleController implements PeopleAPI {
     }
 
     @Override
-    public PeopleDetailedResponse getPersonViaID(UUID idPeople) {
+    public PeopleDetailedResponse getPersonViaID(String idPeople) {
         log.info("[start] PeopleController - getEveryBody");
         log.info("[idPeople] {}", idPeople);
         PeopleDetailedResponse detailedPerson = peopleService.getPersonViaID(idPeople);
@@ -40,7 +39,7 @@ public class PeopleController implements PeopleAPI {
     }
 
     @Override
-    public void deletePersonViaID(UUID idPeople) {
+    public void deletePersonViaID(String idPeople) {
         log.info("[start] PeopleController - deletePersonViaID");
         log.info("[idPeople] {}", idPeople);
         peopleService.deletePersonViaID(idPeople);
@@ -48,7 +47,7 @@ public class PeopleController implements PeopleAPI {
     }
 
     @Override
-    public void changePeople(UUID idPeople, @Valid ChangePeopleRequest changePeopleRequest) {
+    public void changePeople(String idPeople, @Valid ChangePeopleRequest changePeopleRequest) {
         log.info("[start] PeopleController - changePeople");
         log.info("[idPeople] {}", idPeople);
         peopleService.changePersonViaID(idPeople, changePeopleRequest);

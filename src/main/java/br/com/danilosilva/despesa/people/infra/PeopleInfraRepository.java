@@ -8,8 +8,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -38,7 +38,7 @@ public class PeopleInfraRepository implements PeopleRepository {
     }
 
     @Override
-    public People searchPersonById(UUID idPeople) {
+    public People searchPersonById(String idPeople) {
         log.info("[start]PeopleInfraRepository - searchPersonById");
         People people = peopleSpringDataMongoRepository.findById(idPeople)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Person not Found: " + idPeople));

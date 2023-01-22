@@ -2,7 +2,6 @@ package br.com.danilosilva.despesa.people.infra;
 
 import br.com.danilosilva.despesa.people.domain.People;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import java.util.UUID;
 
-public interface PeopleSpringDataMongoRepository extends MongoRepository <People, UUID> {
+public interface PeopleSpringDataMongoRepository extends MongoRepository <People, String> {
 }
