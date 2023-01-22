@@ -10,18 +10,16 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Log4j2
 @RequiredArgsConstructor
 public class ExpenseApplicationService implements ExpenseService{
-
     private final PeopleService peopleService;
     private final ExpenseRepository expenseRepository;
 
     @Override
-    public ExpenseResponse createExpense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+    public ExpenseResponse createExpense(String idPeopleRegistered, ExpenseRequest expenseRequest) {
         log.info("[start] Application service to creating expense: " + idPeopleRegistered);
         peopleService.getPersonViaID(idPeopleRegistered);
         Expense expense = expenseRepository.saveExpense(new Expense(idPeopleRegistered, expenseRequest));
@@ -30,7 +28,7 @@ public class ExpenseApplicationService implements ExpenseService{
     }
 
     @Override
-    public List<ExpensePeopleListResponse> searchPersonExpenseWithId(UUID idPeopleRegistered) {
+    public List<ExpensePeopleListResponse> searchPersonExpenseWithId(String idPeopleRegistered) {
         log.info("[start] ApplicationService search person's expense list: " + idPeopleRegistered);
         peopleService.getPersonViaID(idPeopleRegistered);
         List<Expense> expensePeople = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered);
@@ -39,7 +37,7 @@ public class ExpenseApplicationService implements ExpenseService{
     }
 
     @Override
-    public ExpenseDetailedResponse searchPersonExpenseWithId(UUID idPeopleRegistered, UUID idExpense) {
+    public ExpenseDetailedResponse searchPersonExpenseWithId(String idPeopleRegistered, String idExpense) {
         log.info("[start] ApplicationService search person's expense list: " + idPeopleRegistered + " and idExpense: " + idExpense);
         PeopleDetailedResponse getPeopleViaID = peopleService.getPersonViaID(idPeopleRegistered);
         Expense expense = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered, idExpense);
@@ -48,7 +46,7 @@ public class ExpenseApplicationService implements ExpenseService{
     }
 
     @Override
-    public void deleteExpense(UUID idPeopleRegistered, UUID idExpense) {
+    public void deleteExpense(String idPeopleRegistered, String idExpense) {
         log.info("[start] ApplicationService delete person's expense: " + idPeopleRegistered + " and idExpense: " + idExpense);
         peopleService.getPersonViaID(idPeopleRegistered);
         Expense expense = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered, idExpense);
@@ -57,7 +55,7 @@ public class ExpenseApplicationService implements ExpenseService{
     }
 
     @Override
-    public void updateExpensePeopleWithId(UUID idPeopleRegistered, UUID idExpense, ExpenseChangeRequest expenseChangeRequest) {
+    public void updateExpensePeopleWithId(String idPeopleRegistered, String idExpense, ExpenseChangeRequest expenseChangeRequest) {
         log.info("[start] ApplicationService - update person's expense: " + idPeopleRegistered + " and idExpense: " + idExpense);
         peopleService.getPersonViaID(idPeopleRegistered);
         Expense expense = expenseRepository.searchExpenseOfPeopleId(idPeopleRegistered, idExpense);

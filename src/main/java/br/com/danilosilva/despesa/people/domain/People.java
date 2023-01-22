@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.people.domain;
 
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
 import lombok.*;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Builder

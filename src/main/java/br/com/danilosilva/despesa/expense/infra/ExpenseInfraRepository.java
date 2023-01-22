@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -25,7 +24,7 @@ public class ExpenseInfraRepository implements ExpenseRepository {
     }
 
     @Override
-    public List<Expense> searchExpenseOfPeopleId(UUID idPeopleRegistered) {
+    public List<Expense> searchExpenseOfPeopleId(String idPeopleRegistered) {
         log.info("[start] ExpenseInfraRepository - searchAllExpense");
         var expense = expenseSpringDataMongoRepository.findByIdPeopleRegistered(idPeopleRegistered);
         log.info("[finished] ExpenseInfraRepository - searchAllExpense");
@@ -33,7 +32,7 @@ public class ExpenseInfraRepository implements ExpenseRepository {
     }
 
     @Override
-    public Expense searchExpenseOfPeopleId(UUID idPeopleRegistered, UUID idExpense) {
+    public Expense searchExpenseOfPeopleId(String idPeopleRegistered, String idExpense) {
         log.info("[start] ExpenseInfraRepository - searchExpenseOfPeopleId");
         var expense = expenseSpringDataMongoRepository.findById(idExpense)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Expense not found: " + idExpense));

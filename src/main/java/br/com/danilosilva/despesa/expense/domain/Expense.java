@@ -4,20 +4,19 @@ import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
 import br.com.danilosilva.despesa.people.domain.People;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Builder
 @Getter
@@ -26,10 +25,10 @@ import java.util.UUID;
 @Document(collection = "expense")
 public class Expense {
     @Id
-    private UUID idExpense;
+    private String idExpense;
     @Indexed
     @NotNull
-    private UUID idPeopleRegistered;
+    private String idPeopleRegistered;
 
     @DocumentReference(lazy = true, db = "people")
     @ReadOnlyProperty
@@ -50,7 +49,7 @@ public class Expense {
     private LocalDateTime dateTimeRegistrationExpense;
     private LocalDateTime dateTimeLastChangeExpense;
 
-    public Expense(UUID idPeopleRegistered, ExpenseRequest expenseRequest) {
+    public Expense(String idPeopleRegistered, ExpenseRequest expenseRequest) {
         this.idPeopleRegistered = idPeopleRegistered;
         this.nameExpense = expenseRequest.getNameExpense();
         this.description = expenseRequest.getDescription();

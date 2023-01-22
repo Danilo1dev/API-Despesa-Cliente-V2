@@ -6,11 +6,10 @@ import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
 import lombok.Value;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Value
 public class ExpenseDetailedResponse {
-    private UUID idExpense;
+    private String idExpense;
     private String nameExpense;
     private String description;
     private BigDecimal price;
