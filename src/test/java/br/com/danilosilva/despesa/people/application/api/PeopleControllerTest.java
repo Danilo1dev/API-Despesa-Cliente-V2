@@ -48,19 +48,19 @@ class PeopleControllerTest {
     @Test
     void getPersonViaID() {
         when(peopleService.getPersonViaID(any())).thenReturn(peopleDetailedResponse);
-        PeopleDetailedResponse peopleDetailedResponse = peopleController.getPersonViaID(UUID.randomUUID());
+        PeopleDetailedResponse peopleDetailedResponse = peopleController.getPersonViaID(UUID.randomUUID().toString());
         verify(peopleService,times (1)).getPersonViaID(any());
         Assertions.assertNotNull(peopleDetailedResponse);
     }
     @Test
     void deletePersonViaID() {
-        peopleController.deletePersonViaID(UUID.randomUUID());
+        peopleController.deletePersonViaID(UUID.randomUUID().toString());
         verify(peopleService,times (1)).deletePersonViaID(any());
         Assertions.assertNotNull(peopleController);
     }
     @Test
     void changePeopleViaID() {
-        peopleController.changePeople(UUID.randomUUID(),changePeopleRequest);
+        peopleController.changePeople(UUID.randomUUID().toString(),changePeopleRequest);
         verify(peopleService,times (1)).changePersonViaID(any(),any());
         Assertions.assertNotNull(peopleController);
     }

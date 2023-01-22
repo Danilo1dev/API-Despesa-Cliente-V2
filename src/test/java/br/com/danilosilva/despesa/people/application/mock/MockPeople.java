@@ -15,7 +15,7 @@ public class MockPeople {
 
     public static People peopleBuild() {
         return People.builder()
-                .idPeople(UUID.randomUUID())
+                .idPeople(UUID.randomUUID().toString())
                 .namePeople("Danilo Silva")
                 .cpf("12345678901")
                 .age("30")
@@ -50,7 +50,7 @@ public class MockPeople {
     }
     public static PeopleResponse peopleResponseBuild() {
         return PeopleResponse.builder()
-               .idPeople(UUID.randomUUID())
+                .idPeople(UUID.randomUUID().toString())
                 .build();
     }
 }
