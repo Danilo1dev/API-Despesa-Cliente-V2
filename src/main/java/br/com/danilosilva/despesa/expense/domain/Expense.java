@@ -2,13 +2,10 @@ package br.com.danilosilva.despesa.expense.domain;
 
 import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
 import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
-import br.com.danilosilva.despesa.people.domain.People;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
@@ -30,9 +27,9 @@ public class Expense {
     @NotNull
     private String idPeopleRegistered;
 
-    @DocumentReference(lazy = true, db = "people")
-    @ReadOnlyProperty
-    private People people;
+//    @DocumentReference(lazy = true, db = "people")
+//    @ReadOnlyProperty
+//    private People people;
 
     @NotNull
     private String nameExpense;

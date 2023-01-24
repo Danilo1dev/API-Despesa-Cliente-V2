@@ -2,7 +2,6 @@ package br.com.danilosilva.despesa.people.application.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,4 +27,8 @@ public interface PeopleAPI {
     @PatchMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void changePeople(@PathVariable String idPeople, @Valid @RequestBody ChangePeopleRequest changePeopleRequest);
+
+    @GetMapping(value = "/{idPeople}/expenses")
+    @ResponseStatus(HttpStatus.OK)
+    List<ExpenseListResponsePeople> getExpensesViaID(@PathVariable String idPeople);
 }
