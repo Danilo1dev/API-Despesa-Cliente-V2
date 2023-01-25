@@ -30,5 +30,5 @@ public interface PeopleAPI {
 
     @GetMapping(value = "/{idPeople}/expenses")
     @ResponseStatus(HttpStatus.OK)
-    List<ExpenseListResponsePeople> getExpensesViaID(@PathVariable String idPeople);
+    List<ExpenseListResponsePeople> getPeopleExpensesViaID(@PathVariable String idPeople);
 }

@@ -59,4 +59,12 @@ public class PeopleApplicationService implements PeopleService {
         log.info("[dateTimeLastChange] {}", LocalDateTime.now());
         log.info("[finished] PeopleApplicationService - patchPersonViaID");
     }
+
+    @Override
+    public List<ExpenseListResponsePeople> getPeopleExpensesViaID(String idPeople) {
+        log.info("[start] PeopleApplicationService - getExpensesViaID");
+        log.info("[idPeople] {}", idPeople);
+        log.info("[finished] PeopleApplicationService - getExpensesViaID");
+        return null;
+    }
 }
