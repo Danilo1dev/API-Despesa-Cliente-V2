@@ -1,10 +1,12 @@
 package br.com.danilosilva.despesa.people.domain;
 
+import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.EnumType;
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Builder
@@ -27,8 +30,8 @@ public class People {
     @NotBlank
     private String namePeople;
 
-//    @DBRef(db = "expense")
-//    private List<Expense> expenses;
+    @DBRef(db = "expense")
+    private List<Expense> expenses;
 
     @NotBlank
     @Size(max = 11)

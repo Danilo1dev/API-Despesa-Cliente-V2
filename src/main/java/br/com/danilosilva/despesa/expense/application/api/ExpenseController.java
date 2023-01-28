@@ -31,7 +31,8 @@ public class ExpenseController implements ExpenseAPI  {
     @Override
     public ExpenseDetailedResponse getExpensePeopleId(String idPeopleRegistered, String idExpense) {
         log.info("[start] List expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
-        ExpenseDetailedResponse expenseDetailed = expenseService.searchPersonExpenseWithId(idPeopleRegistered, idExpense);
+        ExpenseDetailedResponse expenseDetailed = expenseService
+                .searchPersonExpenseWithId(idPeopleRegistered, idExpense);
         log.info("[finished] List expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
         return expenseDetailed;
     }
@@ -44,7 +45,8 @@ public class ExpenseController implements ExpenseAPI  {
     }
 
     @Override
-    public void updateExpensePeopleId(String idPeopleRegistered, String idExpense, ExpenseChangeRequest expenseChangeRequest) {
+    public void updateExpensePeopleId(String idPeopleRegistered, String idExpense,
+                                      ExpenseChangeRequest expenseChangeRequest) {
         log.info("[start] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);
         expenseService.updateExpensePeopleWithId(idPeopleRegistered, idExpense, expenseChangeRequest);
         log.info("[finished] UpdateExpensePeopleId expense with id: " + idPeopleRegistered + " and idExpense: " + idExpense);

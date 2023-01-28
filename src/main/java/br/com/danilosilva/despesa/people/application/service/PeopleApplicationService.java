@@ -1,5 +1,6 @@
 package br.com.danilosilva.despesa.people.application.service;
 
+import br.com.danilosilva.despesa.expense.infra.ExpenseSpringDataMongoRepository;
 import br.com.danilosilva.despesa.people.application.api.*;
 import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
 import br.com.danilosilva.despesa.people.domain.People;
@@ -13,6 +14,7 @@ import java.util.List;
 @Log4j2
 @RequiredArgsConstructor
 public class PeopleApplicationService implements PeopleService {
+    private final ExpenseSpringDataMongoRepository expenseSpringDataMongoRepository;
     private final PeopleRepository peopleRepository;
 
     @Override
@@ -58,13 +60,5 @@ public class PeopleApplicationService implements PeopleService {
         peopleRepository.save(people);
         log.info("[dateTimeLastChange] {}", LocalDateTime.now());
         log.info("[finished] PeopleApplicationService - patchPersonViaID");
-    }
-
-    @Override
-    public List<ExpenseListResponsePeople> getPeopleExpensesViaID(String idPeople) {
-        log.info("[start] PeopleApplicationService - getExpensesViaID");
-        log.info("[idPeople] {}", idPeople);
-        log.info("[finished] PeopleApplicationService - getExpensesViaID");
-        return null;
     }
 }

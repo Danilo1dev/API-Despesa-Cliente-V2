@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Value
 public class ExpensePeopleListResponse {
+
     private String idExpense;
     private String nameExpense;
     private String description;
