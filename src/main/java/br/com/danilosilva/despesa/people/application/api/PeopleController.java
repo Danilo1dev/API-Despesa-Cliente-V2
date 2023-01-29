@@ -53,4 +53,12 @@ public class PeopleController implements PeopleAPI {
         peopleService.changePersonViaID(idPeople, changePeopleRequest);
         log.info("[finished] PeopleController - changePeople");
     }
+
+    @Override
+    public List<PeopleExpenseResponse> getPeopleExpensesViaID(String idPeople) {
+        log.info("[start] PeopleController - getPeopleExpensesViaID");
+        log.info("[idPeople] {}", idPeople);
+        List<PeopleExpenseResponse> peopleExpenses = peopleService.getPeopleExpensesViaID(idPeople);
+        return peopleExpenses;
+    }
 }

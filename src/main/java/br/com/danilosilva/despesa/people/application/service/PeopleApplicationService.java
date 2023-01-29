@@ -61,4 +61,14 @@ public class PeopleApplicationService implements PeopleService {
         log.info("[dateTimeLastChange] {}", LocalDateTime.now());
         log.info("[finished] PeopleApplicationService - patchPersonViaID");
     }
+
+    @Override
+    public List<PeopleExpenseResponse> getPeopleExpensesViaID(String idPeople) {
+        log.info("[start] PeopleApplicationService - getPeopleExpensesViaID");
+        log.info("[idPeople] {}", idPeople);
+        People people = peopleRepository.searchPersonById(idPeople);
+        log.info("[finished] PeopleApplicationService - getPeopleExpensesViaID");
+        return PeopleExpenseResponse
+                    .converte(expenseSpringDataMongoRepository.findByIdPeopleRegistered(idPeople));
+    }
 }

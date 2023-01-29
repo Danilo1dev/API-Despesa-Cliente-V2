@@ -27,4 +27,8 @@ public interface PeopleAPI {
     @PatchMapping(value = "/{idPeople}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void changePeople(@PathVariable String idPeople, @Valid @RequestBody ChangePeopleRequest changePeopleRequest);
+
+    @GetMapping(value = "/{idPeople}/expenses")
+    @ResponseStatus(HttpStatus.OK)
+    List<PeopleExpenseResponse> getPeopleExpensesViaID(@PathVariable String idPeople);
 }

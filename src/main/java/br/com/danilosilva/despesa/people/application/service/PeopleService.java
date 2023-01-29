@@ -9,4 +9,5 @@ public interface PeopleService {
     PeopleDetailedResponse getPersonViaID(String idPeople);
     void deletePersonViaID(String idPeople);
     void changePersonViaID(String idPeople, ChangePeopleRequest changePeopleRequest);
+    List<PeopleExpenseResponse> getPeopleExpensesViaID(String idPeople);
 }
