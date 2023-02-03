@@ -2,7 +2,7 @@ package br.com.danilosilva.despesa.people.infra;
 
 import br.com.danilosilva.despesa.handler.APIException;
 import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
-import br.com.danilosilva.despesa.people.domain.People;
+import br.com.danilosilva.despesa.people.domain.entity.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;

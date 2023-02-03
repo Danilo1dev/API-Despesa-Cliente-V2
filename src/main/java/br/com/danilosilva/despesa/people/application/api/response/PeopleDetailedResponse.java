@@ -1,7 +1,7 @@
-package br.com.danilosilva.despesa.people.application.api;
+package br.com.danilosilva.despesa.people.application.api.response;
 
-import br.com.danilosilva.despesa.people.domain.People;
-import br.com.danilosilva.despesa.people.domain.Sex;
+import br.com.danilosilva.despesa.people.domain.entity.People;
+import br.com.danilosilva.despesa.people.domain.enums.Sex;
 import lombok.Value;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

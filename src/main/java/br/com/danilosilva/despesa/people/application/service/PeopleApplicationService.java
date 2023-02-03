@@ -1,9 +1,14 @@
 package br.com.danilosilva.despesa.people.application.service;
 
 import br.com.danilosilva.despesa.expense.infra.ExpenseSpringDataMongoRepository;
-import br.com.danilosilva.despesa.people.application.api.*;
+import br.com.danilosilva.despesa.people.application.api.request.ChangePeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.request.PeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleExpenseResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleListResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleResponse;
 import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
-import br.com.danilosilva.despesa.people.domain.People;
+import br.com.danilosilva.despesa.people.domain.entity.People;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.people.application.api;
+package br.com.danilosilva.despesa.people.application.api.response;
 
-import br.com.danilosilva.despesa.people.domain.People;
+import br.com.danilosilva.despesa.people.domain.entity.People;
 import lombok.Value;
 import java.util.List;
 import java.util.stream.Collectors;
