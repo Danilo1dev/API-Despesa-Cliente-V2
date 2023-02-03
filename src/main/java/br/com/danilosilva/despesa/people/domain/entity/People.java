@@ -1,8 +1,9 @@
-package br.com.danilosilva.despesa.people.domain;
+package br.com.danilosilva.despesa.people.domain.entity;
 
 import br.com.danilosilva.despesa.expense.domain.Expense;
 import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
+import br.com.danilosilva.despesa.people.domain.enums.Sex;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
