@@ -13,7 +13,7 @@ Topicos envolvidos nessa implementação: ⬇️
 
 -Spring Boot 2.7.6;
 
--Banco relacional H2;
+-Banco não relacional mongoDB;
 
 -Swagger;
 
