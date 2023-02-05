@@ -1,6 +1,6 @@
 package br.com.danilosilva.despesa.expense.application.repository;
 
-import br.com.danilosilva.despesa.expense.domain.Expense;
+import br.com.danilosilva.despesa.expense.domain.entity.Expense;
 import java.util.List;
 
 public interface ExpenseRepository {

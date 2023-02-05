@@ -1,7 +1,7 @@
 package br.com.danilosilva.despesa.expense.infra;
 
-import br.com.danilosilva.despesa.expense.domain.Expense;
-import br.com.danilosilva.despesa.people.domain.People;
+import br.com.danilosilva.despesa.expense.domain.entity.Expense;
+import br.com.danilosilva.despesa.people.domain.entity.People;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 

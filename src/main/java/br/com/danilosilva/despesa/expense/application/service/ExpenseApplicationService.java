@@ -1,9 +1,13 @@
 package br.com.danilosilva.despesa.expense.application.service;
 
-import br.com.danilosilva.despesa.expense.application.api.*;
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseChangeRequest;
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseRequest;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpenseDetailedResponse;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpensePeopleListResponse;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpenseResponse;
 import br.com.danilosilva.despesa.expense.application.repository.ExpenseRepository;
-import br.com.danilosilva.despesa.expense.domain.Expense;
-import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.expense.domain.entity.Expense;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleDetailedResponse;
 import br.com.danilosilva.despesa.people.application.service.PeopleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

@@ -1,6 +1,6 @@
 package br.com.danilosilva.despesa.people.domain.entity;
 
-import br.com.danilosilva.despesa.expense.domain.Expense;
+import br.com.danilosilva.despesa.expense.domain.entity.Expense;
 import br.com.danilosilva.despesa.people.application.api.request.ChangePeopleRequest;
 import br.com.danilosilva.despesa.people.application.api.request.PeopleRequest;
 import br.com.danilosilva.despesa.people.domain.enums.Sex;

@@ -1,5 +1,10 @@
 package br.com.danilosilva.despesa.expense.application.api;
 
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseChangeRequest;
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseRequest;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpenseDetailedResponse;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpensePeopleListResponse;
+import br.com.danilosilva.despesa.expense.application.api.response.ExpenseResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;

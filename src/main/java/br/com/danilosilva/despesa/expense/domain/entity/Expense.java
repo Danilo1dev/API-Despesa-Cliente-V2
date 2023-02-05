@@ -1,7 +1,7 @@
 package br.com.danilosilva.despesa.expense.domain.entity;
 
-import br.com.danilosilva.despesa.expense.application.api.ExpenseChangeRequest;
-import br.com.danilosilva.despesa.expense.application.api.ExpenseRequest;
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseChangeRequest;
+import br.com.danilosilva.despesa.expense.application.api.request.ExpenseRequest;
 import br.com.danilosilva.despesa.expense.domain.enums.ExpenseType;
 import br.com.danilosilva.despesa.people.domain.entity.People;
 import lombok.*;
