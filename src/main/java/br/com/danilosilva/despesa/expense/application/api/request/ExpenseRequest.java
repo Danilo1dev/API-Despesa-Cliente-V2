@@ -1,6 +1,6 @@
-package br.com.danilosilva.despesa.expense.application.api;
+package br.com.danilosilva.despesa.expense.application.api.request;
 
-import br.com.danilosilva.despesa.expense.domain.ExpenseType;
+import br.com.danilosilva.despesa.expense.domain.enums.ExpenseType;
 import lombok.Value;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

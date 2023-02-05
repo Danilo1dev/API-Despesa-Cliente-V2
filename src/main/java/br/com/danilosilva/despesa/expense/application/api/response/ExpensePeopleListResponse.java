@@ -1,7 +1,7 @@
-package br.com.danilosilva.despesa.expense.application.api;
+package br.com.danilosilva.despesa.expense.application.api.response;
 
-import br.com.danilosilva.despesa.expense.domain.Expense;
-import br.com.danilosilva.despesa.expense.domain.ExpenseType;
+import br.com.danilosilva.despesa.expense.domain.entity.Expense;
+import br.com.danilosilva.despesa.expense.domain.enums.ExpenseType;
 import lombok.Value;
 import java.math.BigDecimal;
 import java.time.LocalDate;

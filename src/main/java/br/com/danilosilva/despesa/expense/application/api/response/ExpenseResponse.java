@@ -1,4 +1,4 @@
-package br.com.danilosilva.despesa.expense.application.api;
+package br.com.danilosilva.despesa.expense.application.api.response;
 
 import lombok.Value;
 
