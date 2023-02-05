@@ -1,8 +1,8 @@
 package br.com.danilosilva.despesa.people.application.service;
 
-import br.com.danilosilva.despesa.people.application.api.PeopleDetailedResponse;
-import br.com.danilosilva.despesa.people.application.api.PeopleListResponse;
-import br.com.danilosilva.despesa.people.application.api.PeopleResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleListResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleResponse;
 import br.com.danilosilva.despesa.people.application.mock.MockPeople;
 import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
 import org.junit.jupiter.api.Test;

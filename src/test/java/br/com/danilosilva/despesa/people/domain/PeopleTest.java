@@ -2,6 +2,7 @@ package br.com.danilosilva.despesa.people.domain;
 
 import br.com.danilosilva.despesa.people.application.mock.MockPeople;
 import br.com.danilosilva.despesa.people.application.repository.PeopleRepository;
+import br.com.danilosilva.despesa.people.domain.entity.People;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

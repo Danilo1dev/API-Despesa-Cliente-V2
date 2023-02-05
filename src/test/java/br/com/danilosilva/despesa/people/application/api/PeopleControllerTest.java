@@ -1,5 +1,10 @@
 package br.com.danilosilva.despesa.people.application.api;
 
+import br.com.danilosilva.despesa.people.application.api.request.ChangePeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.request.PeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleDetailedResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleListResponse;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleResponse;
 import br.com.danilosilva.despesa.people.application.service.PeopleService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
 package br.com.danilosilva.despesa.people.application.mock;
 
-import br.com.danilosilva.despesa.people.application.api.ChangePeopleRequest;
-import br.com.danilosilva.despesa.people.application.api.PeopleRequest;
-import br.com.danilosilva.despesa.people.application.api.PeopleResponse;
-import br.com.danilosilva.despesa.people.domain.People;
-import br.com.danilosilva.despesa.people.domain.Sex;
+import br.com.danilosilva.despesa.people.application.api.request.ChangePeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.request.PeopleRequest;
+import br.com.danilosilva.despesa.people.application.api.response.PeopleResponse;
+import br.com.danilosilva.despesa.people.domain.entity.People;
+import br.com.danilosilva.despesa.people.domain.enums.Sex;
 import lombok.Builder;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
