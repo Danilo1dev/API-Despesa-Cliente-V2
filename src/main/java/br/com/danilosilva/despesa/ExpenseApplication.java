@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 @Log4j2
-public class DespesaApplication {
+public class ExpenseApplication {
 	@GetMapping
 	public String getHomeTest(){
-	log.info("[start] - Pagina Home acessada");
+	log.info("[start] - Homepage Accessed");
 		return "Despesa Pessoa - API";
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(DespesaApplication.class, args);
+		SpringApplication.run(ExpenseApplication.class, args);
 	}
 }

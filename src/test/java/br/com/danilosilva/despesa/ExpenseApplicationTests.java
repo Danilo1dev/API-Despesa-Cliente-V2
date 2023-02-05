@@ -10,16 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Log4j2
 @ExtendWith(MockitoExtension.class)
-class DespesaApplicationTests {
+class ExpenseApplicationTests {
 	@InjectMocks
-	private DespesaApplication despesaApplication;
+	private ExpenseApplication expenseApplication;
 
 	@Test
 	void getHomeTest() {
-		despesaApplication.getHomeTest();
+		expenseApplication.getHomeTest();
 	}
 	@Test
 	void main() {
-		DespesaApplication.main(new String[] {});
+		ExpenseApplication.main(new String[] {});
 	}
 }
