@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
+@Log4j2
 @RestController
 @RequestMapping("/")
-@Log4j2
+@SpringBootApplication
 public class ExpenseApplication {
 	@GetMapping
 	public String getHomeTest(){
